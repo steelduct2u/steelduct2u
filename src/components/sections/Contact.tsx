@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { MapPin, Phone, CheckCircle2, ShieldCheck } from 'lucide-react'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import LazySection from '@/components/ui/LazySection'
+import SectionHeader from '@/components/ui/SectionHeader'
+import { siteConfig, whatsappLink } from '@/config/site'
 
 const serviceOptions = [
   'Kitchen Hood Installation (NFPA 96 & Certified HVAC)',
@@ -25,31 +27,32 @@ export default function Contact() {
   })
   const [submitted, setSubmitted] = useState(false)
 
+  const inquiryUrl = () =>
+    whatsappLink(
+      [
+        '📋 *PROJECT INQUIRY — STEEL DUCT*',
+        '',
+        `👤 *Name:* ${formData.name}`,
+        `📞 *Phone / WhatsApp:* ${formData.phone}`,
+        `📧 *Email:* ${formData.email || 'Not provided'}`,
+        `🔧 *Service Required:* ${formData.service}`,
+        `📍 *Project Location:* ${formData.location || 'Not provided'}`,
+        '',
+        '💬 *Project Details & Requirements:*',
+        formData.message,
+        '',
+        '_Sent via Steel Duct Website Inquiry Form_',
+      ].join('\n'),
+    )
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    const lines = [
-      '📋 *PROJECT INQUIRY — STEEL DUCT*',
-      '',
-      `👤 *Name:* ${formData.name}`,
-      `📞 *Phone / WhatsApp:* ${formData.phone}`,
-      `📧 *Email:* ${formData.email || 'Not provided'}`,
-      `🔧 *Service Required:* ${formData.service}`,
-      `📍 *Project Location:* ${formData.location || 'Not provided'}`,
-      '',
-      '💬 *Project Details & Requirements:*',
-      formData.message,
-      '',
-      '_Sent via Steel Duct Website Inquiry Form_',
-    ]
-
-    const waUrl = `https://wa.me/60389575808?text=${encodeURIComponent(lines.join('\n'))}`
-    window.open(waUrl, '_blank')
+    window.open(inquiryUrl(), '_blank')
     setSubmitted(true)
   }
 
   return (
-    <section id="contact" className="relative bg-gray-950 py-24 px-6">
+    <section id="contact" className="relative bg-gray-950 py-16 sm:py-24 px-5 sm:px-6">
       {/* Top divider */}
       <div
         aria-hidden="true"
@@ -79,38 +82,17 @@ export default function Contact() {
 
       <LazySection>
         <div className="relative max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="flex flex-col items-center text-center mb-16 gap-4">
-            <div className="flex items-center gap-2.5">
-              <span className="h-px w-8 bg-orange-500" />
-              <span
-                className="text-xs font-semibold tracking-[0.3em] uppercase text-orange-500"
-                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-              >
-                Get In Touch
-              </span>
-              <span className="h-px w-8 bg-orange-500" />
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
-              style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-            >
-              Contact <span className="text-orange-500">Our Team</span>
-            </h2>
-            <p
-              className="max-w-2xl text-gray-300 text-lg leading-relaxed"
-              style={{ fontFamily: 'var(--font-inter), sans-serif' }}
-            >
-              Send an inquiry directly to our engineering desk at{' '}
+          <SectionHeader eyebrow="Free Site Inspection" title="Request a" accent="Free Quote">
+              Tell us about your project below and it will open in WhatsApp, ready to send.
+              Prefer email? Write to{' '}
               <a
-                href="mailto:sdtechnic@gmail.com"
+                href={`mailto:${siteConfig.contact.email}`}
                 className="text-orange-400 hover:text-orange-300 underline underline-offset-2 font-medium"
               >
-                sdtechnic@gmail.com
-              </a>{' '}
-              or reach out via phone and WhatsApp.
-            </p>
-          </div>
+                {siteConfig.contact.email}
+              </a>
+              .
+          </SectionHeader>
 
           {/* ── Value & Satisfaction Guarantee Banner ── */}
           <div className="mb-10 rounded-2xl bg-gradient-to-r from-orange-500/15 via-orange-500/5 to-transparent border border-orange-500/30 p-5 sm:p-6 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xl">
@@ -126,7 +108,7 @@ export default function Contact() {
                   Free Site Inspection, Expert Advice &amp; Quotation
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-300">
-                  Uncompromised engineering quality tailored to fit within your budget. Guaranteed.
+                  Quality engineering, scoped to fit your budget.
                 </p>
               </div>
             </div>
@@ -176,20 +158,7 @@ export default function Contact() {
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <a
-                    href={`https://wa.me/60389575808?text=${encodeURIComponent([
-                      '📋 *PROJECT INQUIRY — STEEL DUCT*',
-                      '',
-                      `👤 *Name:* ${formData.name}`,
-                      `📞 *Phone / WhatsApp:* ${formData.phone}`,
-                      `📧 *Email:* ${formData.email || 'Not provided'}`,
-                      `🔧 *Service Required:* ${formData.service}`,
-                      `📍 *Project Location:* ${formData.location || 'Not provided'}`,
-                      '',
-                      '💬 *Project Details & Requirements:*',
-                      formData.message,
-                      '',
-                      '_Sent via Steel Duct Website Inquiry Form_',
-                    ].join('\n'))}`}
+                    href={inquiryUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 font-extrabold text-xs uppercase tracking-wider transition-all duration-200"
@@ -237,7 +206,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Ahmad Razif / Restaurant ABC"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                     />
                   </div>
 
@@ -257,7 +226,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="e.g. +60 12-345 6789"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                     />
                   </div>
 
@@ -276,7 +245,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. yourname@example.com"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                     />
                   </div>
 
@@ -293,7 +262,7 @@ export default function Contact() {
                       id="inquiry-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm focus:border-orange-500 focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                     >
                       {serviceOptions.map((opt) => (
                         <option key={opt} value={opt} className="bg-gray-900 text-white">
@@ -319,7 +288,7 @@ export default function Contact() {
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     placeholder="e.g. Petaling Jaya, Selangor / KLCC / Shah Alam"
-                    className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                   />
                 </div>
 
@@ -339,7 +308,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your kitchen exhaust hood requirements, ductwork dimensions, factory specifications, or site inspection requests..."
-                    className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                   />
                 </div>
 
@@ -359,9 +328,9 @@ export default function Contact() {
           </div>
 
           {/* Info cards grid (3 cards: Office Address, Office Phone, WhatsApp Direct Line) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="stagger grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Address Card */}
-            <div className="group relative flex flex-col justify-between p-7 rounded-2xl bg-black border border-gray-800 hover:border-orange-500/40 transition-all duration-300 h-full">
+            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-gray-900/50 to-black border border-gray-800 hover:border-orange-500/40 h-full">
               <div>
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 mb-5">
                   <MapPin
@@ -381,19 +350,17 @@ export default function Contact() {
                     className="text-base text-gray-300 leading-relaxed"
                     style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                   >
-                    Block A-G-01, Jalan LP 7/3,
+                    {siteConfig.address.street},
                     <br />
-                    Taman Lestari Perdana,
+                    {siteConfig.address.postalCode} {siteConfig.address.locality},
                     <br />
-                    43300 Seri Kembangan,
-                    <br />
-                    Selangor, Malaysia
+                    {siteConfig.address.region}, Malaysia
                   </p>
                 </div>
               </div>
 
               <a
-                href="https://maps.google.com/?q=Block+A-G-01+Jalan+LP+7/3+Taman+Lestari+Perdana+43300+Seri+Kembangan+Selangor"
+                href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.address.full)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View Steel Duct Office Address on Google Maps"
@@ -406,7 +373,7 @@ export default function Contact() {
             </div>
 
             {/* Office Phone Card */}
-            <div className="group relative flex flex-col justify-between p-7 rounded-2xl bg-black border border-gray-800 hover:border-orange-500/40 transition-all duration-300 h-full">
+            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-gray-900/50 to-black border border-gray-800 hover:border-orange-500/40 h-full">
               <div>
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 mb-5">
                   <Phone
@@ -423,24 +390,24 @@ export default function Contact() {
                     Office Phone
                   </p>
                   <a
-                    href="tel:+60389575808"
-                    aria-label="Call Steel Duct office phone at +60 3-8957 5808"
+                    href={`tel:${siteConfig.contact.phoneRaw}`}
+                    aria-label={`Call Steel Duct office phone at ${siteConfig.contact.phone}`}
                     className="text-xl font-bold text-white hover:text-orange-400 transition-colors duration-200 block"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
-                    +60 3-8957 5808
+                    {siteConfig.contact.phone}
                   </a>
                   <p className="text-sm text-gray-400 mt-1 leading-relaxed">
                     Operating Hours:
                     <br />
-                    Monday – Saturday: 8:00 AM – 6:00 PM
+                    {siteConfig.hours.days}: {siteConfig.hours.time}
                   </p>
                 </div>
               </div>
 
               <a
-                href="tel:+60389575808"
-                aria-label="Call Steel Duct office phone at +60 3-8957 5808"
+                href={`tel:${siteConfig.contact.phoneRaw}`}
+                aria-label={`Call Steel Duct office phone at ${siteConfig.contact.phone}`}
                 className="mt-6 inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-md bg-gray-900 hover:bg-gray-850 border border-gray-800 hover:border-orange-500/50 text-orange-500 hover:text-orange-400 text-xs font-bold tracking-wider uppercase transition-all duration-200"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
@@ -450,14 +417,14 @@ export default function Contact() {
             </div>
 
             {/* WhatsApp Direct Line Card */}
-            <div className="group relative flex flex-col justify-between p-7 rounded-2xl bg-black border border-orange-500/40 hover:border-orange-500/70 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/15 h-full">
+            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-[#25D366]/10 to-black border border-orange-500/40 hover:border-orange-500/70 h-full">
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#25D366]/10 border border-[#25D366]/40 text-[#25D366] transition-all duration-300">
                     <WhatsAppIcon size={22} />
                   </div>
                   <span
-                    className="text-[10px] font-bold tracking-widest uppercase text-orange-500 border border-orange-500/40 rounded px-2 py-0.5"
+                    className="text-xs font-bold tracking-widest uppercase text-orange-500 border border-orange-500/40 rounded px-2 py-0.5"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     Instant Reply
@@ -472,14 +439,14 @@ export default function Contact() {
                     WhatsApp Enquiries &amp; Quotes
                   </p>
                   <a
-                    href="https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote%20for%20your%20services."
+                    href={whatsappLink('Hello Steel Duct, I would like to request a quote for your services.')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Chat with Steel Duct on WhatsApp: +60 3-8957 5808"
+                    aria-label={`Chat with Steel Duct on WhatsApp: ${siteConfig.contact.phone}`}
                     className="text-xl font-bold text-white hover:text-[#25D366] transition-colors duration-200 block"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
-                    +60 3-8957 5808
+                    {siteConfig.contact.phone}
                   </a>
                   <p className="text-sm text-gray-400 mt-1 leading-relaxed">
                     Available for immediate project consultations, PDF quotation sharing, and site inspections.
@@ -489,10 +456,10 @@ export default function Contact() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote%20for%20your%20services."
+                href={whatsappLink('Hello Steel Duct, I would like to request a quote for your services.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Chat with Steel Duct on WhatsApp: +60 3-8957 5808"
+                aria-label={`Chat with Steel Duct on WhatsApp: ${siteConfig.contact.phone}`}
                 className="mt-6 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 text-xs font-extrabold tracking-wider uppercase transition-all duration-200 shadow-md shadow-[#25D366]/20"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >

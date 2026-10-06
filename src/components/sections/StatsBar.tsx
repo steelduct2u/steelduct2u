@@ -1,11 +1,10 @@
-'use client'
-
 import {
   Award,
   Hammer,
   ChefHat,
   ShieldCheck,
 } from 'lucide-react'
+import CountUp from '@/components/ui/CountUp'
 import type { StatFact } from '@/types'
 
 // ── The 4 Best Engineering & Performance Facts for Steel Duct ──
@@ -69,7 +68,7 @@ export default function StatsBar() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span
-                className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-gray-400"
+                className="text-xs font-semibold tracking-widest uppercase text-gray-400"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 Service Verification &amp; Engineering Standards
@@ -77,7 +76,7 @@ export default function StatsBar() {
             </div>
 
             <span
-              className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-orange-500"
+              className="text-xs font-bold tracking-widest uppercase text-orange-500"
               style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
             >
               Malaysia Nationwide
@@ -85,25 +84,25 @@ export default function StatsBar() {
           </div>
 
           {/* 4 Balanced Number Fact Columns */}
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-0 lg:divide-x lg:divide-gray-800/80">
+          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-0 lg:divide-x lg:divide-gray-800/80">
             {bestFacts.map(({ id, value, prefix, suffix, label, sub, Icon }) => (
               <div
                 key={id}
-                className="group flex items-center gap-4 p-3.5 sm:p-4 lg:p-0 lg:px-6 xl:px-7 first:lg:pl-2 last:lg:pr-2 rounded-xl lg:rounded-none bg-gray-900/40 lg:bg-transparent border border-gray-800/60 lg:border-0 hover:border-orange-500/30 transition-all duration-300 justify-start"
+                className="group flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3.5 sm:p-4 lg:p-0 lg:px-6 xl:px-7 first:lg:pl-2 last:lg:pr-2 rounded-xl lg:rounded-none bg-gray-900/40 lg:bg-transparent border border-gray-800/60 lg:border-0 hover:border-orange-500/30 transition-all duration-300 justify-start"
               >
                 {/* Icon */}
-                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-500 group-hover:border-orange-500/60 group-hover:bg-orange-500/15 group-hover:scale-105 transition-all duration-300 shadow-sm">
+                <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-500 group-hover:border-orange-500/60 group-hover:bg-orange-500/15 group-hover:scale-105 transition-all duration-300 shadow-sm">
                   <Icon size={22} strokeWidth={1.75} />
                 </div>
 
                 {/* Text Block with Continuous Looping Animated Number */}
                 <div className="flex flex-col min-w-0">
                   <span
-                    className="text-2xl sm:text-3xl font-black text-white leading-none tracking-tight"
+                    className="text-xl sm:text-3xl font-black text-white leading-none tracking-tight"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     {prefix}
-                    {value.toLocaleString()}
+                    <CountUp value={value} />
                     {suffix}
                   </span>
                   <span
@@ -113,7 +112,7 @@ export default function StatsBar() {
                     {label}
                   </span>
                   <span
-                    className="text-sm text-gray-400 mt-0.5 leading-snug"
+                    className="hidden sm:block text-sm text-gray-400 mt-0.5 leading-snug"
                     style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                   >
                     {sub}

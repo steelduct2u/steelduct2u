@@ -55,6 +55,7 @@ export default function LazySection({
   return (
     <div
       ref={containerRef}
+      data-visible={isIntersected}
       className={`transition-all duration-700 ease-out ${
         isIntersected
           ? 'opacity-100 translate-y-0 pointer-events-auto'

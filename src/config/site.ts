@@ -17,7 +17,6 @@ export const siteConfig = {
     phoneRaw: '+60389575808',
     email: 'sdtechnic@gmail.com',
     whatsappUrl: 'https://wa.me/60389575808',
-    whatsappMessage: 'Hello Steel Duct, I would like to request a quote.',
   },
 
   // Address
@@ -38,17 +37,40 @@ export const siteConfig = {
   hours: {
     days: 'Monday – Saturday',
     time: '8:00 AM – 6:00 PM',
-    closed: 'Sunday & Public Holidays',
   },
 
+  // Kawasan servis: seluruh Malaysia — dipaparkan dalam footer & schema (areaServed)
+  areaServed: [
+    'Kuala Lumpur',
+    'Selangor',
+    'Putrajaya',
+    'Negeri Sembilan',
+    'Melaka',
+    'Johor',
+    'Pahang',
+    'Perak',
+    'Penang',
+    'Kedah',
+    'Perlis',
+    'Kelantan',
+    'Terengganu',
+    'Sabah',
+    'Sarawak',
+    'Labuan',
+  ],
   // Navigation Links
   navLinks: [
     { label: 'Home', href: '#home' },
     { label: 'Services', href: '#services' },
     { label: 'Gallery', href: '#gallery' },
-    { label: 'Support', href: '#expertise' },
+    { label: 'Process', href: '#expertise' },
     { label: 'Sectors', href: '#sectors' },
     { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' },
   ],
 } as const
+
+// Pautan WhatsApp dengan mesej siap diisi — guna ini, jangan tulis URL wa.me secara manual.
+export function whatsappLink(message: string) {
+  return `${siteConfig.contact.whatsappUrl}?text=${encodeURIComponent(message)}`
+}

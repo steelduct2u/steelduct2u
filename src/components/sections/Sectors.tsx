@@ -1,5 +1,6 @@
 import { UtensilsCrossed, Factory, Building2, HeartPulse, ShoppingBag, Server } from 'lucide-react'
 import LazySection from '@/components/ui/LazySection'
+import SectionHeader from '@/components/ui/SectionHeader'
 import type { SectorItem } from '@/types'
 
 const sectors: SectorItem[] = [
@@ -49,7 +50,7 @@ const sectors: SectorItem[] = [
 
 export default function Sectors() {
   return (
-    <section id="sectors" className="relative bg-gray-950 py-24 px-6">
+    <section id="sectors" className="relative bg-gray-950 py-16 sm:py-24 px-5 sm:px-6">
       {/* Top divider */}
       <div
         aria-hidden="true"
@@ -79,52 +80,33 @@ export default function Sectors() {
 
       <LazySection minHeight="520px">
         <div className="relative z-10 max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="flex flex-col items-center text-center mb-16 gap-4">
-            <div className="flex items-center gap-2.5">
-              <span className="h-px w-8 bg-orange-500" />
-              <span
-                className="text-xs font-semibold tracking-[0.3em] uppercase text-orange-500"
-                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-              >
-                Industries Served
-              </span>
-              <span className="h-px w-8 bg-orange-500" />
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
-              style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-            >
-              Tailored for <span className="text-orange-500">Every Environment</span>
-            </h2>
-            <p
-              className="max-w-2xl text-gray-300 text-lg leading-relaxed"
-              style={{ fontFamily: 'var(--font-inter), sans-serif' }}
-            >
-              Different industries carry vastly different airflow demands. We tailor ductwork materials,
-              fan capacities, and filtration systems to meet strict sector regulations across Malaysia.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Who We Work With"
+            title="Built for"
+            accent="Your Industry"
+          >
+            Whether you run a restaurant, a factory or a commercial building, we size the ductwork, fans and filters to suit your space and the regulations that apply to it.
+          </SectionHeader>
 
           {/* Sectors Grid (6 items — Perfectly Balanced Heights & Baselines) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="stagger grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {sectors.map(({ id, title, description, Icon }) => (
               <div
                 key={id}
-                className="group relative flex flex-col justify-between p-7 rounded-2xl bg-black border border-gray-800/80 hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/5 h-full"
+                className="card-lift group relative flex flex-col justify-between p-4 sm:p-7 rounded-2xl bg-gradient-to-b from-gray-900/60 to-black border border-gray-800/80 hover:border-orange-500/50 h-full overflow-hidden"
               >
                 <div>
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-500 mb-5 group-hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-500 mb-3 sm:mb-5 group-hover:scale-105 transition-transform duration-300">
                     <Icon size={22} strokeWidth={1.75} />
                   </div>
                   <h3
-                    className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-200 mb-2.5 min-h-[52px] flex items-center"
+                    className="text-sm sm:text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-200 sm:mb-2.5 sm:min-h-[52px] flex items-center"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     {title}
                   </h3>
                   <p
-                    className="text-base text-gray-400 group-hover:text-gray-300 leading-relaxed transition-colors duration-300 min-h-[76px] sm:min-h-[72px]"
+                    className="hidden sm:block text-base text-gray-400 group-hover:text-gray-300 leading-relaxed transition-colors duration-300 sm:min-h-[72px]"
                     style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                   >
                     {description}

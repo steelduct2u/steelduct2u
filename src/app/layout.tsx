@@ -7,7 +7,7 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
   display: 'swap',
-  preload: false,
+  preload: true, // font tajuk hero — preload supaya tiada lompatan teks
 })
 
 const inter = Inter({
@@ -42,8 +42,7 @@ export const metadata: Metadata = {
   },
 
   // ── Natural, engaging meta description (human-first, concise) ─────────────
-  description:
-    'Custom kitchen hood ductwork, industrial exhaust fans, commercial air coolers, and HVAC solutions in Malaysia. Certified CIDB M01 engineering team for commercial kitchens, factories, and commercial facilities.',
+  description: siteConfig.description,
 
   // ── Comprehensive Search Engine & Crawler Keywords (EN & BM) ───────────────
   keywords: [
@@ -73,10 +72,6 @@ export const metadata: Metadata = {
   // ── Canonical & Alternates ─────────────────────────────────────────────────
   alternates: {
     canonical: siteUrl,
-    languages: {
-      'en-MY': siteUrl,
-      'ms-MY': siteUrl,
-    },
   },
 
   applicationName: 'Steel Duct Environmental',
@@ -118,7 +113,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_MY',
-    alternateLocale: ['ms_MY'],
     url: siteUrl,
     siteName: 'Steel Duct Environmental Sdn Bhd',
     title: 'Steel Duct Environmental | Commercial Ventilation & HVAC Contractor',
@@ -126,7 +120,7 @@ export const metadata: Metadata = {
       'Custom kitchen hood ductwork, industrial exhaust fans, evaporative coolers, and commercial HVAC solutions in Malaysia. Certified CIDB M01 engineering team.',
     images: [
       {
-        url: `${siteUrl}/og-image.jpg`,
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
         alt: 'Steel Duct Environmental – Commercial Ventilation & HVAC Solutions',
@@ -140,7 +134,7 @@ export const metadata: Metadata = {
     title: 'Steel Duct Environmental | Commercial Ventilation & HVAC Contractor',
     description:
       'Custom kitchen hood ductwork, industrial exhaust fans, evaporative coolers, and commercial HVAC solutions in Malaysia. Certified CIDB M01 engineering team.',
-    images: [`${siteUrl}/og-image.jpg`],
+    images: [siteConfig.ogImage],
   },
 
   // ── Google Search Console Verification ────────────────────────────────────
@@ -176,27 +170,29 @@ const jsonLdGraph = {
     {
       '@type': ['HVACBusiness', 'LocalBusiness'],
       '@id': `${siteUrl}/#organization`,
-      name: 'Steel Duct Environmental Sdn Bhd',
-      alternateName: 'Still Duct Technical Engineering',
+      name: siteConfig.name,
+      alternateName: siteConfig.alternateName,
       description:
         'Commercial kitchen ventilation, custom steel ductwork, industrial exhaust fans, and HVAC contracting services in Malaysia.',
       url: siteUrl,
-      telephone: '+60389575808',
-      email: 'sdtechnic@gmail.com',
+      logo: `${siteUrl}/icon-512.png`,
+      image: siteConfig.ogImage,
+      telephone: siteConfig.contact.phoneRaw,
+      email: siteConfig.contact.email,
       priceRange: '$$',
       currenciesAccepted: 'MYR',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Block A-G-01, Jalan LP 7/3, Taman Lestari Perdana',
-        addressLocality: 'Seri Kembangan',
-        postalCode: '43300',
-        addressRegion: 'Selangor',
-        addressCountry: 'MY',
+        streetAddress: siteConfig.address.street,
+        addressLocality: siteConfig.address.locality,
+        postalCode: siteConfig.address.postalCode,
+        addressRegion: siteConfig.address.region,
+        addressCountry: siteConfig.address.country,
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 3.0319,
-        longitude: 101.7097,
+        latitude: siteConfig.address.geo.latitude,
+        longitude: siteConfig.address.geo.longitude,
       },
       openingHoursSpecification: [
         {
@@ -213,7 +209,10 @@ const jsonLdGraph = {
           closes: '18:00',
         },
       ],
-      areaServed: ['Selangor', 'Kuala Lumpur', 'Putrajaya', 'Malaysia'],
+      areaServed: [
+        { '@type': 'Country', name: 'Malaysia' },
+        ...siteConfig.areaServed.map((name) => ({ '@type': 'State', name })),
+      ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Ventilation & Air Conditioning Services',
@@ -315,11 +314,11 @@ const jsonLdGraph = {
       '@type': 'WebSite',
       '@id': `${siteUrl}/#website`,
       url: siteUrl,
-      name: 'Steel Duct Environmental Sdn Bhd',
-      alternateName: ['Steel Duct', 'Still Duct Technical Engineering'],
+      name: siteConfig.name,
+      alternateName: [siteConfig.shortName, siteConfig.alternateName],
       description:
         'Commercial kitchen ventilation, custom steel ductwork, industrial exhaust fans, and HVAC contracting services in Malaysia.',
-      inLanguage: ['en-MY', 'ms-MY'],
+      inLanguage: 'en-MY',
       publisher: {
         '@id': `${siteUrl}/#organization`,
       },

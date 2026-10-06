@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { Menu } from 'lucide-react'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
-import { siteConfig } from '@/config/site'
+import { siteConfig, whatsappLink } from '@/config/site'
 
 const navLinks = siteConfig.navLinks
 
@@ -24,7 +24,7 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
             className="flex items-center gap-3 select-none group"
           >
               <Image
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Steel Duct Logo"
                 width={40}
                 height={40}
@@ -57,7 +57,7 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote."
+              href={whatsappLink('Hello Steel Duct, I would like to request a quote.')}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat with Steel Duct on WhatsApp"
@@ -79,7 +79,7 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
           className="flex items-center gap-2.5 select-none group"
         >
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Steel Duct Logo"
             width={36}
             height={36}
@@ -95,19 +95,8 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
           </span>
         </a>
 
+        {/* WhatsApp & Call ada dalam bar tindakan bawah (FloatingWhatsApp) */}
         <div className="flex items-center gap-2.5">
-          <a
-            href="https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote."
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat with Steel Duct on WhatsApp"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 text-xs font-extrabold tracking-wider uppercase transition-colors shadow-md shadow-[#25D366]/20"
-            style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-          >
-            <WhatsAppIcon size={14} />
-            <span>WhatsApp</span>
-          </a>
-
           <button
             id="mobile-menu-toggle"
             onClick={onMenuOpen}

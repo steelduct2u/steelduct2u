@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import Hero from '@/components/sections/Hero'
@@ -7,16 +6,11 @@ import Services from '@/components/sections/Services'
 import Gallery from '@/components/sections/Gallery'
 import Expertise from '@/components/sections/Expertise'
 import Sectors from '@/components/sections/Sectors'
+import QuoteCta from '@/components/sections/QuoteCta'
 import FAQ from '@/components/sections/FAQ'
 import Contact from '@/components/sections/Contact'
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp'
-import ScrollReveal from '@/components/ui/ScrollReveal'
-
-export const metadata: Metadata = {
-  title: 'Steel Duct Environmental | Commercial Ventilation & HVAC Contractor Malaysia',
-  description:
-    'Custom kitchen hood ductwork, industrial exhaust fans, commercial air coolers, and HVAC solutions in Malaysia. Certified CIDB M01 engineering team for commercial kitchens, factories, and commercial facilities.',
-}
+import BackToTop from '@/components/ui/BackToTop'
 
 export default function Home() {
   return (
@@ -32,34 +26,25 @@ export default function Home() {
         <StatsBar />
 
         {/* 3 – Core Ventilation & Duct Steel Fabrication Services */}
-        <ScrollReveal>
-          <Services />
-        </ScrollReveal>
+        <Services />
 
         {/* 4 – Project Showcase & Visual Gallery */}
-        <ScrollReveal>
-          <Gallery />
-        </ScrollReveal>
+        <Gallery />
 
         {/* 5 – Full Lifecycle Engineering & Support */}
-        <ScrollReveal>
-          <Expertise />
-        </ScrollReveal>
+        <Expertise />
 
         {/* 6 – Industries & Sectors Served */}
-        <ScrollReveal>
-          <Sectors />
-        </ScrollReveal>
+        <Sectors />
+
+        {/* 6b – Clear next step: free inspection & quote */}
+        <QuoteCta />
 
         {/* 7 – Frequently Asked Questions */}
-        <ScrollReveal>
-          <FAQ />
-        </ScrollReveal>
+        <FAQ />
 
         {/* 8 – Direct Contact & Project Team */}
-        <ScrollReveal>
-          <Contact />
-        </ScrollReveal>
+        <Contact />
       </main>
 
       {/* Footer — no scroll reveal, always visible */}
@@ -67,6 +52,7 @@ export default function Home() {
 
       {/* Floating WhatsApp CTA */}
       <FloatingWhatsApp />
+      <BackToTop />
     </div>
   )
 }

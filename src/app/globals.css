@@ -16,7 +16,11 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* clip tidak merosakkan position: sticky; hidden sebagai fallback pelayar lama */
   overflow-x: hidden;
+  overflow-x: clip;
+  /* Pautan #anchor tidak terlindung di bawah header tetap */
+  scroll-padding-top: 5rem;
   /* Base responsive typography */
   font-size: 16px;
 }
@@ -43,6 +47,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   min-width: 320px;
 }
@@ -69,33 +74,6 @@ select {
   background-repeat: no-repeat;
   background-size: 1.25em 1.25em;
   padding-right: 2.5rem;
-}
-
-/* ── Safari & WebKit Backdrop Blur Vendor Prefix Support ── */
-.backdrop-blur-none {
-  -webkit-backdrop-filter: blur(0);
-  backdrop-filter: blur(0);
-}
-.backdrop-blur-sm {
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-}
-.backdrop-blur,
-.backdrop-blur-md {
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-}
-.backdrop-blur-lg {
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-}
-.backdrop-blur-xl {
-  -webkit-backdrop-filter: blur(24px);
-  backdrop-filter: blur(24px);
-}
-.backdrop-blur-2xl {
-  -webkit-backdrop-filter: blur(40px);
-  backdrop-filter: blur(40px);
 }
 
 /* ── Cross-Browser Custom Dark Scrollbar (WebKit & Firefox) ── */
@@ -134,12 +112,15 @@ select {
 }
 
 /* ── Image & Media Optimization ── */
-img, video {
-  max-width: 100%;
-  height: auto;
-  -webkit-user-drag: none;
-  user-select: none;
-  -webkit-user-select: none;
+/* Dalam @layer base supaya utility Tailwind (cth. h-full) boleh mengatasinya */
+@layer base {
+  img, video {
+    max-width: 100%;
+    height: auto;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
 }
 
 /* ── Hero Section Viewport Height Fix (iOS Safari dynamic toolbar compatibility) ── */
@@ -149,44 +130,69 @@ img, video {
   min-height: 100dvh;
 }
 
-/* ── Hero Slider — Unified Smooth Fade-Up Animation ── */
-
-/* Single keyframe: semua elemen naik 18px sambil fade in.
-   Easing: cubic-bezier(0.25, 0.46, 0.45, 0.94) — "ease-out" yang lembut
-   dan organik, bukan mekanikal. Ini memberikan rasa premium. */
+/* ── Hero: animasi teks bila slide bertukar ── */
 @keyframes heroFadeUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(18px);
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-@-webkit-keyframes heroFadeUp {
-  from { opacity: 0; -webkit-transform: translateY(18px); }
-  to   { opacity: 1; -webkit-transform: translateY(0); }
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Utility Classes — semua pakai animasi yang sama, bezanya hanya delay ──
-   fill-mode: both → elemen kekal invisible sebelum animasi mula,
-   dan kekal visible selepas animasi selesai.
-   Easing dipilih untuk rasa "float up" yang smooth, bukan melantun. */
-
-/* ── Satu class sahaja — semua content fade up SERENTAK ──
-   key={`content-${animKey}`} pada wrapper div memastikan React
-   remount div ini setiap kali slide bertukar, maka animasi bermula semula.
-   Delay 1.5s: background slide muncul dahulu, baru semua teks naik bersama. */
-.hero-anim-content {
+/* ── Hero: teks masuk berperingkat ── */
+.hero-stagger > * {
   opacity: 0;
-  -webkit-animation: heroFadeUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
-  animation: heroFadeUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+  animation: heroFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-stagger > *:nth-child(2) { animation-delay: 0.12s; }
+.hero-stagger > *:nth-child(3) { animation-delay: 0.2s; }
+.hero-stagger > *:nth-child(4) { animation-delay: 0.3s; }
+.hero-stagger > *:nth-child(5) { animation-delay: 0.4s; }
+.hero-stagger > *:nth-child(6) { animation-delay: 0.5s; }
+
+/* Baris kedua tajuk (oren) didedahkan dari kiri ke kanan */
+@keyframes heroReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.hero-reveal {
+  animation: heroReveal 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.35s both;
 }
 
-/* Legacy */
+/* Garis oren di bawah tajuk */
+@keyframes heroUnderline {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.hero-underline {
+  transform-origin: left;
+  animation: heroUnderline 0.8s cubic-bezier(0.65, 0, 0.35, 1) 0.8s both;
+}
+.hero-underline--right { transform-origin: right; }
+
+/* ── Hero: gambar latar zoom perlahan (Ken Burns) ── */
+@keyframes heroKenBurns {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to   { transform: scale(1.14) translate3d(-1.5%, -1%, 0); }
+}
+@keyframes heroKenBurnsAlt {
+  from { transform: scale(1.14) translate3d(1.5%, -1%, 0); }
+  to   { transform: scale(1.02) translate3d(0, 0, 0); }
+}
+.hero-kenburns     { animation: heroKenBurns 9s ease-out both; will-change: transform; }
+.hero-kenburns-alt { animation: heroKenBurnsAlt 9s ease-out both; will-change: transform; }
+
+/* ── Hero: bar progres pada titik slide aktif ── */
+@keyframes heroProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.hero-progress {
+  transform-origin: left;
+  animation-name: heroProgress;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+/* Fade-in ringkas untuk popup gallery */
 @keyframes heroFadeIn {
   from { opacity: 0; -webkit-transform: translateY(4px); transform: translateY(4px); }
   to   { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
@@ -196,22 +202,59 @@ img, video {
   animation: heroFadeIn 0.35s ease-out forwards;
 }
 
-/* ── Scroll Reveal — Fade Up on Scroll (sekali sahaja) ── */
-.scroll-reveal {
-  opacity: 0;
-  -webkit-transform: translateY(40px);
-  transform: translateY(40px);
-  -webkit-transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
-                      -webkit-transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
-  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
-              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+/* ── Teks gradient oren (tajuk seksyen) ── */
+.text-gradient-orange {
+  color: #f97316; /* fallback jika background-clip: text tidak disokong */
+  background-image: linear-gradient(90deg, #f97316 0%, #fb923c 45%, #fcd34d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.scroll-reveal--visible {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
+/* ── Kad muncul berperingkat bila LazySection kelihatan ── */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+[data-visible="false"] .stagger > * { opacity: 0; }
+[data-visible="true"] .stagger > * {
+  animation: cardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+[data-visible="true"] .stagger > *:nth-child(2) { animation-delay: 0.08s; }
+[data-visible="true"] .stagger > *:nth-child(3) { animation-delay: 0.16s; }
+[data-visible="true"] .stagger > *:nth-child(4) { animation-delay: 0.24s; }
+[data-visible="true"] .stagger > *:nth-child(5) { animation-delay: 0.32s; }
+[data-visible="true"] .stagger > *:nth-child(6) { animation-delay: 0.4s; }
+
+/* ── Kad: angkat sedikit bila hover (hanya peranti dengan tetikus) ── */
+@media (hover: hover) and (pointer: fine) {
+  .card-lift {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(249, 115, 22, 0.35);
+  }
+}
+
+/* ── Fallback untuk pelayar tanpa backdrop-filter: latar lebih pekat ── */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  [class*="backdrop-blur"] { background-color: rgba(3, 7, 18, 0.96) !important; }
+}
+
+/* ── Fokus papan kekunci yang jelas (semua pelayar) ── */
+:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 3px;
+}
+
+/* ── Karusel leret (gallery mobile) ── */
+.snap-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+.snap-carousel > * { scroll-snap-align: start; }
 
 /* ── Accessibility: Reduced Motion for users who prefer it ── */
 @media (prefers-reduced-motion: reduce) {

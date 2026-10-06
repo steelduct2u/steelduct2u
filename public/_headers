@@ -1,0 +1,17 @@
+# Cloudflare Pages — cache headers
+# Fail /_next/static mempunyai hash dalam nama, jadi selamat di-cache selama setahun.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.webp
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

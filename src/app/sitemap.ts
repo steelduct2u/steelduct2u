@@ -3,52 +3,14 @@ import { siteConfig } from '@/config/site'
 
 export const dynamic = 'force-static'
 
+// Satu halaman sahaja — Google abaikan URL dengan #anchor, jadi jangan senaraikan seksyen.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url
-  const currentDate = new Date()
-
   return [
     {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
+      url: siteConfig.url,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/#services`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#gallery`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#expertise`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#sectors`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#faq`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
     },
   ]
 }

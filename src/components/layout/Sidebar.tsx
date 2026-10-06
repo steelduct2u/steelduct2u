@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { X } from 'lucide-react'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
-import { siteConfig } from '@/config/site'
+import { siteConfig, whatsappLink } from '@/config/site'
 
 const navLinks = siteConfig.navLinks
 
@@ -45,11 +45,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             className="flex items-center gap-3 select-none group"
           >
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Steel Duct Logo"
               width={40}
               height={40}
-              priority
               className="w-10 h-10 object-contain drop-shadow-[0_2px_8px_rgba(249,115,22,0.4)]"
             />
             {/* Brand text */}
@@ -91,7 +90,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         {/* Footer CTA */}
         <div className="mt-auto px-6 py-6 border-t border-gray-800">
           <a
-            href="https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote."
+            href={whatsappLink('Hello Steel Duct, I would like to request a quote.')}
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}

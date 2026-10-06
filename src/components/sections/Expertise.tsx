@@ -1,5 +1,6 @@
 import { Wrench, CalendarClock, Zap, Wind, Check } from 'lucide-react'
 import LazySection from '@/components/ui/LazySection'
+import SectionHeader from '@/components/ui/SectionHeader'
 import type { ExpertiseCard } from '@/types'
 
 const items: ExpertiseCard[] = [
@@ -59,7 +60,7 @@ const items: ExpertiseCard[] = [
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="relative bg-black py-24 px-6 overflow-hidden">
+    <section id="expertise" className="relative bg-black py-16 sm:py-24 px-5 sm:px-6 overflow-hidden">
       {/* Top divider */}
       <div
         aria-hidden="true"
@@ -78,35 +79,17 @@ export default function Expertise() {
 
       <LazySection minHeight="450px">
         <div className="relative z-10 max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="flex flex-col items-center text-center mb-16 gap-4">
-            <div className="flex items-center gap-2.5">
-              <span className="h-px w-8 bg-orange-500" />
-              <span
-                className="text-xs font-semibold tracking-[0.3em] uppercase text-orange-500"
-                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-              >
-                End-To-End Process
-              </span>
-              <span className="h-px w-8 bg-orange-500" />
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
-              style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-            >
-              How We <span className="text-orange-500">Support You</span>
-            </h2>
-            <p
-              className="max-w-2xl text-gray-300 text-lg leading-relaxed"
-              style={{ fontFamily: 'var(--font-inter), sans-serif' }}
-            >
-              From new installation and system fit-out to preventative servicing and emergency repairs — clear, reliable service at every stage.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="How We Work"
+            title="From Installation to"
+            accent="Ongoing Support"
+          >
+            New installation and fit-out, preventative servicing and emergency repairs — clear, reliable service at every stage.
+          </SectionHeader>
 
           {/* ── DESKTOP TIMELINE WITH CARDS (lg screens and above) ── */}
           <div className="hidden lg:block relative">
-            <div className="grid grid-cols-4 gap-6 relative">
+            <div className="stagger grid grid-cols-4 gap-6 relative">
               {items.map(({ id, step, category, title, shortDesc, points, Icon }, index) => {
                 const isLast = index === items.length - 1
                 return (
@@ -127,25 +110,22 @@ export default function Expertise() {
                       {/* Solid Centered Timeline Node (Masks rail underneath) */}
                       <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-xl bg-black border-2 border-orange-500 shadow-lg shadow-orange-500/15 text-orange-500 group-hover:bg-orange-500 group-hover:text-black group-hover:scale-110 transition-all duration-300">
                         <Icon size={20} strokeWidth={2} />
-                        <span className="absolute -bottom-1.5 -right-1.5 px-1 py-0.2 rounded bg-black border border-orange-500/90 text-[9px] font-black text-orange-400 group-hover:border-black group-hover:bg-black group-hover:text-orange-400 transition-colors">
-                          {step}
-                        </span>
                       </div>
                     </div>
 
                     {/* Timeline Card */}
-                    <div className="flex-1 flex flex-col justify-between bg-gray-950/90 border border-gray-800/90 hover:border-orange-500/50 hover:bg-gray-900/60 transition-all duration-300 rounded-2xl p-6 shadow-lg shadow-black/50 group-hover:-translate-y-1">
+                    <div className="flex-1 flex flex-col justify-between bg-gray-950/90 border border-gray-800/90 hover:border-orange-500/50 hover:bg-gray-900/60 transition-colors duration-300 rounded-2xl p-6 shadow-lg shadow-black/50 card-lift">
                       <div>
                         {/* Header within card */}
                         <div className="flex items-center justify-between gap-2 mb-3">
                           <span
-                            className="text-[11px] font-bold tracking-wider uppercase text-orange-400/90"
+                            className="text-xs font-bold tracking-wider uppercase text-orange-400/90"
                             style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                           >
                             {category}
                           </span>
                           <span
-                            className="text-[10px] font-black tracking-widest text-orange-500 uppercase px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/25"
+                            className="text-xs font-black tracking-widest text-orange-500 uppercase px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/25"
                             style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                           >
                             STEP {step}
@@ -195,28 +175,25 @@ export default function Expertise() {
               className="absolute left-6 sm:left-8 top-6 bottom-12 w-[2px] bg-gradient-to-b from-orange-500 via-orange-500/70 to-gray-800 -translate-x-1/2 z-0"
             />
 
-            <div className="flex flex-col gap-8 sm:gap-10">
+            <div className="stagger flex flex-col gap-8 sm:gap-10">
               {items.map(({ id, step, category, title, shortDesc, points, Icon }) => (
                 <div key={id} className="relative flex items-start gap-4 sm:gap-6 group">
                   {/* Timeline Node on vertical rail */}
                   <div className="relative z-10 -ml-6 sm:-ml-8 flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-black border-2 border-orange-500 text-orange-500 shadow-lg shadow-orange-500/20 group-hover:bg-orange-500 group-hover:text-black transition-all duration-300">
                     <Icon size={20} strokeWidth={2} />
-                    <span className="absolute -top-1.5 -right-1.5 px-1 py-0.2 rounded bg-black border border-orange-500 text-[9px] font-bold text-orange-400">
-                      {step}
-                    </span>
                   </div>
 
                   {/* Card next to vertical timeline rail */}
                   <div className="flex-1 bg-gray-950/90 border border-gray-800/90 hover:border-orange-500/50 hover:bg-gray-900/60 transition-all rounded-2xl p-5 sm:p-6 shadow-lg shadow-black/50">
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <span
-                        className="text-[11px] font-bold tracking-wider uppercase text-orange-400/90"
+                        className="text-xs font-bold tracking-wider uppercase text-orange-400/90"
                         style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                       >
                         {category}
                       </span>
                       <span
-                        className="text-[10px] font-black tracking-widest text-orange-500 uppercase px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/25"
+                        className="text-xs font-black tracking-widest text-orange-500 uppercase px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/25"
                         style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                       >
                         STEP {step}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback, useRef } from 'react'
-import Image from 'next/image'
+import { preload } from 'react-dom'
 import {
   ArrowRight,
   ChevronLeft,
@@ -17,40 +17,41 @@ import {
 } from 'lucide-react'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import type { HeroSlide } from '@/types'
+import { whatsappLink } from '@/config/site'
 
 const slides: HeroSlide[] = [
   {
     id: 1,
     category: 'Engineering & Contracting',
     label: 'HVAC Contractor',
-    line1: 'Commercial HVAC &',
-    line2: 'Ventilation Contractor',
+    line1: 'Kitchen Hood & Ductwork',
+    line2: 'Installation Contractor',
     description:
-      'With over 10 years of hands-on experience in duct steelwork and mechanical air systems, we deliver end-to-end ventilation solutions engineered for lasting performance.',
-    bgImage: '/images/hero/slide-1-hvac.jpg',
+      'Opening a restaurant, upgrading a kitchen or ventilating a factory? We supply and install kitchen exhaust hoods, steel ductwork and exhaust fans across Malaysia — starting with a free site inspection.',
+    bgImage: '/images/hero/slide-1-hvac.webp',
     align: 'left',
     Icon: Building2,
-    ctaLabel: 'Get a Quote',
+    ctaLabel: 'Get a Free Quote',
     ctaHref:
-      'https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote%20for%20HVAC%20and%20ventilation%20services.',
-    secondaryLabel: 'Learn More',
+      whatsappLink('Hello Steel Duct, I would like to request a quote for HVAC and ventilation services.'),
+    secondaryLabel: 'View Services',
     secondaryHref: '#services',
   },
   {
     id: 2,
-    category: 'NFPA 96 & Certified HVAC',
+    category: 'Kitchen Hoods • NFPA 96 Compliant',
     label: 'Kitchen Hood Installation',
     line1: 'NFPA 96 Kitchen Hood',
     line2: 'Installation & Ductwork',
     description:
       'Certified HVAC supply and installation of commercial kitchen hood systems, continuous liquid-tight welded grease ductwork, and fire safety ventilation compliant with NFPA 96 standards.',
-    bgImage: '/images/hero/slide-2-kitchen-hood.jpg',
+    bgImage: '/images/hero/slide-2-kitchen-hood.webp',
     align: 'right',
     Icon: ChefHat,
-    ctaLabel: 'Get a Quote',
+    ctaLabel: 'Get a Free Quote',
     ctaHref:
-      'https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote%20for%20NFPA%2096%20Kitchen%20Hood%20Installation.',
-    secondaryLabel: 'Learn More',
+      whatsappLink('Hello Steel Duct, I would like to request a quote for NFPA 96 Kitchen Hood Installation.'),
+    secondaryLabel: 'View Services',
     secondaryHref: '#services',
   },
   {
@@ -61,13 +62,13 @@ const slides: HeroSlide[] = [
     line2: 'Exhaust Fan Systems',
     description:
       'Supply and installation of industrial and residential exhaust fans for kitchens, bathrooms, and commercial facilities — engineered for quiet, continuous ventilation.',
-    bgImage: '/images/hero/slide-3-exhaust-fan.jpg',
+    bgImage: '/images/hero/slide-3-exhaust-fan.webp',
     align: 'left',
     Icon: Fan,
-    ctaLabel: 'Get a Quote',
+    ctaLabel: 'Get a Free Quote',
     ctaHref:
-      'https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote%20for%20Exhaust%20Fan%20Systems.',
-    secondaryLabel: 'Learn More',
+      whatsappLink('Hello Steel Duct, I would like to request a quote for Exhaust Fan Systems.'),
+    secondaryLabel: 'View Services',
     secondaryHref: '#services',
   },
   {
@@ -78,13 +79,13 @@ const slides: HeroSlide[] = [
     line2: 'Commercial Air Coolers',
     description:
       'Installation and servicing of evaporative and mechanical air cooling units suited for both open commercial areas, kitchens, and enclosed residential spaces.',
-    bgImage: '/images/hero/slide-4-air-cooler.jpg',
+    bgImage: '/images/hero/slide-4-air-cooler.webp',
     align: 'right',
     Icon: Snowflake,
-    ctaLabel: 'Get a Quote',
+    ctaLabel: 'Get a Free Quote',
     ctaHref:
-      'https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote%20for%20Commercial%20Air%20Coolers.',
-    secondaryLabel: 'Learn More',
+      whatsappLink('Hello Steel Duct, I would like to request a quote for Commercial Air Coolers.'),
+    secondaryLabel: 'View Services',
     secondaryHref: '#services',
   },
   {
@@ -95,13 +96,13 @@ const slides: HeroSlide[] = [
     line2: 'Odour Control Systems',
     description:
       'Integrated air freshening and deodorizing systems designed to neutralize stubborn cooking odours, reduce airborne impurities, and maintain a cleaner indoor atmosphere.',
-    bgImage: '/images/hero/slide-5-air-fresher.jpg',
+    bgImage: '/images/hero/slide-5-air-fresher.webp',
     align: 'left',
     Icon: Sparkles,
-    ctaLabel: 'Get a Quote',
+    ctaLabel: 'Get a Free Quote',
     ctaHref:
-      'https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote%20for%20Air%20Fresher%20and%20Odour%20Control.',
-    secondaryLabel: 'Learn More',
+      whatsappLink('Hello Steel Duct, I would like to request a quote for Air Fresher and Odour Control.'),
+    secondaryLabel: 'View Services',
     secondaryHref: '#services',
   },
   {
@@ -112,20 +113,31 @@ const slides: HeroSlide[] = [
     line2: 'Duct Installation',
     description:
       'Supply and installation of stainless steel grease ducts and galvanised iron HVAC ductwork — precisely fitted to your site drawings with full compliance to Malaysian fire safety and health codes.',
-    bgImage: '/images/hero/slide-6-duct-steel.jpg',
+    bgImage: '/images/hero/slide-6-duct-steel.webp',
     align: 'right',
     Icon: Hammer,
-    ctaLabel: 'Get a Quote',
+    ctaLabel: 'Get a Free Quote',
     ctaHref:
-      'https://wa.me/60389575808?text=Hello%20Steel%20Duct,%20I%20would%20like%20to%20request%20a%20quote%20for%20duct%20steel%20installation.',
-    secondaryLabel: 'Learn More',
+      whatsappLink('Hello Steel Duct, I would like to request a quote for duct steel installation.'),
+    secondaryLabel: 'View Services',
     secondaryHref: '#services',
   },
 ]
 
 const AUTOPLAY_INTERVAL = 7500
 
+// Versi 768px untuk telefon, versi penuh (1376px) untuk tablet/desktop
+const heroSrcSet = (src: string) => `${src.replace('.webp', '-768.webp')} 768w, ${src} 1376w`
+
 export default function Hero() {
+  // Preload gambar LCP (slide pertama) dengan saiz yang sesuai untuk peranti
+  preload(slides[0].bgImage, {
+    as: 'image',
+    imageSrcSet: heroSrcSet(slides[0].bgImage),
+    imageSizes: '100vw',
+    fetchPriority: 'high',
+  })
+
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
   const [animating, setAnimating] = useState(false)
@@ -133,17 +145,19 @@ export default function Hero() {
   // which restarts CSS animations fresh — the industry-standard approach.
   const [animKey, setAnimKey] = useState(0)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [visits, setVisits] = useState<number[]>(() => slides.map(() => 0))
 
-  // Lazy load slides 2 to 6 so initial page load is instant
+  // Lazy load slides: only the current slide plus the next one, so mobile
+  // visitors don't download every slide image up front.
   const [loadedImages, setLoadedImages] = useState<number[]>([0])
 
   useEffect(() => {
-    // Progressively lazy-load remaining slides after initial render
+    const upcoming = (current + 1) % slides.length
     const idleTimer = setTimeout(() => {
-      setLoadedImages([0, 1, 2, 3, 4, 5])
+      setLoadedImages((prev) => (prev.includes(upcoming) ? prev : [...prev, upcoming]))
     }, 1500)
     return () => clearTimeout(idleTimer)
-  }, [])
+  }, [current])
 
   const goTo = useCallback(
     (index: number) => {
@@ -151,6 +165,7 @@ export default function Hero() {
       setAnimating(true)
       setLoadedImages((prev) => (prev.includes(index) ? prev : [...prev, index]))
       setCurrent(index)
+      setVisits((v) => v.map((n, i) => (i === index ? n + 1 : n)))
       setAnimKey((k) => k + 1) // bump key → remounts all animated children
       setTimeout(() => setAnimating(false), 350)
     },
@@ -180,7 +195,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-black pt-28 pb-28"
+      className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-black pt-28 pb-44 lg:pb-28"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -199,15 +214,26 @@ export default function Hero() {
               isCurrent ? 'opacity-100 z-0' : 'opacity-0 pointer-events-none -z-10',
             ].join(' ')}
           >
-            <Image
-              src={s.bgImage}
-              alt={s.label}
-              fill
-              priority={idx === 0}
-              quality={75}
-              sizes="100vw"
-              className="object-cover object-center select-none pointer-events-none"
-            />
+            {/* Ken Burns: zoom perlahan; key berubah hanya bila slide ini diaktifkan semula */}
+            <div
+              key={`kb-${visits[idx]}`}
+              className={[
+                'absolute inset-0',
+                idx % 2 === 0 ? 'hero-kenburns' : 'hero-kenburns-alt',
+              ].join(' ')}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export: srcset manual */}
+              <img
+                src={s.bgImage}
+                srcSet={heroSrcSet(s.bgImage)}
+                sizes="100vw"
+                alt=""
+                decoding="async"
+                fetchPriority={idx === 0 ? 'high' : 'low'}
+                loading={idx === 0 ? 'eager' : 'lazy'}
+                className="absolute inset-0 h-full w-full object-cover object-center select-none pointer-events-none"
+              />
+            </div>
           </div>
         )
       })}
@@ -252,7 +278,7 @@ export default function Hero() {
           ].join(' ')}
         >
           {/* ── Semua content fade up SERENTAK sebagai satu blok ── */}
-          <div key={`content-${animKey}`} className="hero-anim-content">
+          <div key={`content-${animKey}`} className={animKey > 0 ? 'hero-stagger' : undefined}>
 
             {/* Decorative Icon */}
             <div
@@ -278,7 +304,7 @@ export default function Hero() {
                 className="text-xs font-semibold tracking-[0.2em] uppercase text-orange-400"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
-                {slide.id === 2 ? 'Kitchen Hoods • NFPA 96 Certified' : slide.category}
+                {slide.category}
               </span>
               <span className="h-px w-6 bg-orange-500" />
             </div>
@@ -289,7 +315,14 @@ export default function Hero() {
               style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
             >
               <span className="block text-white lg:whitespace-nowrap">{slide.line1}</span>
-              <span className="block text-orange-500 lg:whitespace-nowrap">{slide.line2}</span>
+              <span className={['block text-orange-500 lg:whitespace-nowrap', animKey > 0 ? 'hero-reveal' : ''].join(' ')}>{slide.line2}</span>
+              <span
+                aria-hidden="true"
+                className={[
+                  'hero-underline block mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-amber-300',
+                  isLeft ? '' : 'lg:ml-auto hero-underline--right',
+                ].join(' ')}
+              />
             </h1>
 
             {/* Description */}
@@ -353,7 +386,7 @@ export default function Hero() {
               </div>
             </div>
 
-          </div>{/* end hero-anim-content */}
+          </div>
         </div>
       </div>
 
@@ -376,16 +409,27 @@ export default function Hero() {
 
       {/* ── Bottom Navigation Bar (Dots + Mobile Arrows integrated at bottom, 100% free of text overlap) ── */}
       <div
-        className="absolute bottom-6 sm:bottom-8 left-0 right-0 z-20 flex items-center justify-center gap-3 px-4"
+        className="absolute bottom-24 lg:bottom-8 left-0 right-0 z-20 flex items-center justify-center gap-3 px-4"
       >
         {/* Mobile Prev Arrow */}
         <button
           onClick={prev}
           aria-label="Previous slide"
-          className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-black/80 backdrop-blur-md border border-gray-700 text-gray-300 active:bg-orange-500 active:text-black transition-colors"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-gray-700 text-gray-300 active:bg-orange-500 active:text-black transition-colors"
         >
           <ChevronLeft size={16} strokeWidth={2.5} />
         </button>
+
+        {/* Slide counter */}
+        <span
+          aria-hidden="true"
+          className="hidden md:inline text-xs font-bold tracking-[0.2em] text-gray-400 tabular-nums mr-2"
+          style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+        >
+          <span className="text-white">{String(current + 1).padStart(2, '0')}</span>
+          {' / '}
+          {String(slides.length).padStart(2, '0')}
+        </span>
 
         {/* Dots Selection */}
         <div
@@ -401,17 +445,27 @@ export default function Hero() {
               aria-label={`Go to slide ${i + 1}: ${s.label}`}
               onClick={() => goTo(i)}
               className="relative flex items-center justify-center cursor-pointer"
-              style={{ width: '26px', height: '16px' }}
+              style={{ width: '32px', height: '32px' }}
             >
               <span
-                className="block rounded-full transition-all duration-300"
+                className="relative block overflow-hidden rounded-full transition-all duration-300"
                 style={{
-                  width: i === current ? '26px' : '8px',
+                  width: i === current ? '28px' : '8px',
                   height: '8px',
-                  backgroundColor:
-                    i === current ? 'rgb(249 115 22)' : 'rgb(156 163 175)',
+                  backgroundColor: i === current ? 'rgb(75 85 99)' : 'rgb(156 163 175)',
                 }}
-              />
+              >
+                {i === current && (
+                  <span
+                    key={`progress-${animKey}`}
+                    className="hero-progress absolute inset-0 rounded-full bg-orange-500"
+                    style={{
+                      animationDuration: `${AUTOPLAY_INTERVAL}ms`,
+                      animationPlayState: paused ? 'paused' : 'running',
+                    }}
+                  />
+                )}
+              </span>
             </button>
           ))}
         </div>
@@ -420,7 +474,7 @@ export default function Hero() {
         <button
           onClick={next}
           aria-label="Next slide"
-          className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-black/80 backdrop-blur-md border border-gray-700 text-gray-300 active:bg-orange-500 active:text-black transition-colors"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-gray-700 text-gray-300 active:bg-orange-500 active:text-black transition-colors"
         >
           <ChevronRight size={16} strokeWidth={2.5} />
         </button>
