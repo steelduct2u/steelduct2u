@@ -1,6 +1,7 @@
-// Domain dibaca dari environment variable — tukar dalam Cloudflare Pages dashboard sahaja.
-// Cloudflare Pages → Settings → Environment Variables → NEXT_PUBLIC_SITE_URL
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sdtech-ez6.pages.dev'
+// Domain dibaca dari environment variable — set dalam Cloudflare Pages dashboard:
+// Cloudflare Pages → Settings → Environment Variables → NEXT_PUBLIC_SITE_URL (cth. https://domain-anda.com)
+// Fallback localhost hanya untuk pembangunan; production MESTI set pemboleh ubah ini.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
 
 export const siteConfig = {
   name: 'Steel Duct Environmental Sdn Bhd',
