@@ -23,7 +23,7 @@ export default function QuoteCta() {
               Need a kitchen hood, ducting or exhaust system{' '}
               <span className="text-gradient-orange">installed?</span>
             </h2>
-            <p className="mt-3 text-base sm:text-lg text-zinc-300 leading-relaxed">
+            <p className="mt-3 text-base sm:text-lg text-zinc-400 leading-relaxed">
               Getting a quote takes three simple steps.
             </p>
           </div>
@@ -36,12 +36,12 @@ export default function QuoteCta() {
                 </div>
                 <div>
                   <p
-                    className="text-xs font-bold tracking-widest uppercase text-orange-400"
+                    className="leading-relaxed text-xs font-bold tracking-widest uppercase text-orange-400"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     Step {i + 1}
                   </p>
-                  <p className="mt-0.5 text-base font-bold text-white">{title}</p>
+                  <p className="leading-relaxed mt-0.5 text-base font-bold text-white">{title}</p>
                   <p className="mt-1 text-sm text-zinc-400 leading-relaxed">{text}</p>
                 </div>
               </li>

@@ -107,7 +107,7 @@ export default function Footer() {
                 <Mail size={18} className="text-orange-500 flex-shrink-0" />
                 {contact.email}
               </a>
-              <p className="flex items-start gap-3">
+              <p className="leading-relaxed flex items-start gap-3">
                 <Clock size={18} className="text-orange-500 flex-shrink-0 mt-0.5" />
                 <span>
                   {hours.days}

@@ -106,7 +106,7 @@ export default function Sectors() {
                     {title}
                   </h3>
                   <p
-                    className="text-sm text-zinc-400 group-hover:text-zinc-300 leading-relaxed transition-colors duration-300"
+                    className="text-sm text-zinc-400 group-hover:text-zinc-400 leading-relaxed transition-colors duration-300"
                     style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                   >
                     {description}

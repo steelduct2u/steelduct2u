@@ -276,7 +276,7 @@ export default function Gallery() {
 
                     {/* Title */}
                     <h3
-                      className="text-lg font-extrabold text-white group-hover:text-orange-400 transition-colors duration-200 mb-2 leading-snug"
+                      className="tracking-tight text-lg font-extrabold text-white group-hover:text-orange-400 transition-colors duration-200 mb-2 leading-snug"
                       style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                     >
                       {/* Butang meliputi seluruh kad (after:inset-0) — kad boleh diklik & difokus papan kekunci */}
@@ -291,7 +291,7 @@ export default function Gallery() {
 
                     {/* Description */}
                     <p
-                      className="text-sm sm:text-sm text-zinc-300 leading-relaxed mb-4 line-clamp-3"
+                      className="text-sm sm:text-sm text-zinc-400 leading-relaxed mb-4 line-clamp-3"
                       style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                     >
                       {item.description}
@@ -326,7 +326,7 @@ export default function Gallery() {
               </div>
             ))}
           </div>
-          <p aria-hidden="true" className="sm:hidden mt-3 text-center text-xs text-zinc-500">
+          <p aria-hidden="true" className="leading-relaxed sm:hidden mt-3 text-center text-xs text-zinc-500">
             Swipe to see more projects →
           </p>
         </div>
@@ -410,7 +410,7 @@ export default function Gallery() {
                 {/* Tajuk + meta */}
                 <div>
                   <h3
-                    className="text-lg sm:text-xl md:text-2xl font-extrabold text-white leading-tight"
+                    className="tracking-tight text-lg sm:text-xl md:text-2xl font-extrabold text-white leading-tight"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     {selectedItem.title}
@@ -429,7 +429,7 @@ export default function Gallery() {
                   </div>
                 </div>
 
-                <p className="text-[13px] sm:text-sm text-zinc-300 leading-relaxed line-clamp-3 md:line-clamp-none">
+                <p className="text-[13px] sm:text-sm text-zinc-400 leading-relaxed line-clamp-3 md:line-clamp-none">
                   {selectedItem.description}
                 </p>
 

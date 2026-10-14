@@ -107,7 +107,7 @@ export default function Contact() {
                 >
                   Free Site Inspection, Expert Advice &amp; Quotation
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-300">
+                <p className="leading-relaxed text-xs sm:text-sm text-zinc-400">
                   Quality engineering, scoped to fit your budget.
                 </p>
               </div>
@@ -136,7 +136,7 @@ export default function Contact() {
                 >
                   WhatsApp Inquiry Form
                 </h3>
-                <p className="text-xs text-zinc-400">
+                <p className="leading-relaxed text-xs text-zinc-400">
                   Fill in the form and click <span className="text-green-400 font-semibold">Send Now</span> — your inquiry will be sent directly to our WhatsApp.
                 </p>
               </div>
@@ -153,7 +153,7 @@ export default function Contact() {
                 >
                   WhatsApp Ready!
                 </h4>
-                <p className="text-sm text-zinc-300 max-w-lg mx-auto mb-6 leading-relaxed">
+                <p className="text-sm text-zinc-400 max-w-lg mx-auto mb-6 leading-relaxed">
                   Your inquiry has been prepared. If WhatsApp did not open automatically, click the button below:
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-4">
@@ -341,13 +341,13 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col gap-1.5 min-h-[130px]">
                   <p
-                    className="text-xs font-semibold tracking-widest uppercase text-orange-500"
+                    className="leading-relaxed text-xs font-semibold tracking-widest uppercase text-orange-500"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     Office Address
                   </p>
                   <p
-                    className="text-base text-zinc-300 leading-relaxed"
+                    className="text-base text-zinc-400 leading-relaxed"
                     style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                   >
                     {siteConfig.address.street},
@@ -384,7 +384,7 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col gap-1.5 min-h-[130px]">
                   <p
-                    className="text-xs font-semibold tracking-widest uppercase text-orange-500"
+                    className="leading-relaxed text-xs font-semibold tracking-widest uppercase text-orange-500"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     Office Phone
@@ -433,7 +433,7 @@ export default function Contact() {
 
                 <div className="flex flex-col gap-1.5 min-h-[130px]">
                   <p
-                    className="text-xs font-semibold tracking-widest uppercase text-[#25D366]"
+                    className="leading-relaxed text-xs font-semibold tracking-widest uppercase text-[#25D366]"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     WhatsApp Enquiries &amp; Quotes

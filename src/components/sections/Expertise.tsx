@@ -134,7 +134,7 @@ export default function Expertise() {
 
                         {/* Card Title */}
                         <h3
-                          className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors leading-snug mb-2.5 min-h-[48px] flex items-center"
+                          className="tracking-tight text-lg font-bold text-white group-hover:text-orange-400 transition-colors leading-snug mb-2.5 min-h-[48px] flex items-center"
                           style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                         >
                           {title}
@@ -142,7 +142,7 @@ export default function Expertise() {
 
                         {/* Short Description */}
                         <p
-                          className="text-sm text-zinc-300 leading-relaxed mb-5 min-h-[38px]"
+                          className="text-sm text-zinc-400 leading-relaxed mb-5 min-h-[38px]"
                           style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                         >
                           {shortDesc}
@@ -201,14 +201,14 @@ export default function Expertise() {
                     </div>
 
                     <h3
-                      className="text-base sm:text-lg font-bold text-white group-hover:text-orange-400 transition-colors leading-snug mb-2"
+                      className="tracking-tight text-base sm:text-lg font-bold text-white group-hover:text-orange-400 transition-colors leading-snug mb-2"
                       style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                     >
                       {title}
                     </h3>
 
                     <p
-                      className="text-sm sm:text-base text-zinc-300 leading-relaxed mb-4"
+                      className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-4"
                       style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                     >
                       {shortDesc}

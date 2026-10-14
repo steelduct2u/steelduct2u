@@ -122,7 +122,7 @@ function AccordionItem({
       >
         <div className="overflow-hidden" inert={!isOpen}>
           <p
-            className="px-4 sm:px-5 pb-5 sm:pl-[3.75rem] text-sm sm:text-base text-zinc-300 leading-relaxed"
+            className="px-4 sm:px-5 pb-5 sm:pl-[3.75rem] text-sm sm:text-base text-zinc-400 leading-relaxed"
             style={{ fontFamily: 'var(--font-inter), sans-serif' }}
           >
             {item.answer}
