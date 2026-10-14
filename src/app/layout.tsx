@@ -113,7 +113,10 @@ export const metadata: Metadata = {
 
   // ── Google Search Console Verification ────────────────────────────────────
   verification: {
-    google: 'yUIUlkpau6Qr1hvAPmbm8nyA-1EA3cQoIP-UH-isbTU',
+    google: [
+      'dRbE2H6cEKducbum1R1MqvRdP6nZq58HGwYCR6uMVRw', // akaun Search Console baharu
+      'yUIUlkpau6Qr1hvAPmbm8nyA-1EA3cQoIP-UH-isbTU', // akaun lama (dikekalkan supaya akses lama tak terputus)
+    ],
   },
 
   // ── Favicon & App Icons (Steel Duct Logo) ────────────────────────────────
