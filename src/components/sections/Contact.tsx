@@ -6,6 +6,7 @@ import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import LazySection from '@/components/ui/LazySection'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { siteConfig, whatsappLink } from '@/config/site'
+import { GA_EVENTS, trackEvent } from '@/lib/analytics'
 
 const serviceOptions = [
   'Kitchen Hood Installation (NFPA 96 & Certified HVAC)',
@@ -47,6 +48,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    trackEvent(GA_EVENTS.whatsappFormSubmit, { service: formData.service })
     window.open(inquiryUrl(), '_blank')
     setSubmitted(true)
   }
