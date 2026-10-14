@@ -49,7 +49,7 @@ export default function BackToTop() {
       className={[
         // Mobile: atas bar tindakan bawah. Desktop: atas butang WhatsApp terapung.
         'fixed z-40 right-4 bottom-[calc(5.5rem+env(safe-area-inset-bottom))] lg:right-6 lg:bottom-24',
-        'flex items-center justify-center w-12 h-12 rounded-full bg-gray-950/90 backdrop-blur-md border border-gray-800 text-white shadow-xl shadow-black/60',
+        'flex items-center justify-center w-12 h-12 rounded-full bg-zinc-950/90 backdrop-blur-md border border-white/10 text-white shadow-xl shadow-black/60',
         'transition-all duration-300 hover:border-orange-500 hover:text-orange-400',
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none',
       ].join(' ')}

@@ -8,7 +8,7 @@ export const siteConfig = {
   shortName: 'Steel Duct',
   alternateName: 'Still Duct Technical Engineering',
   description:
-    'Custom kitchen hood ductwork, industrial exhaust fans, commercial air coolers, and HVAC solutions in Malaysia. Certified CIDB M01 engineering team for commercial kitchens, factories, and commercial facilities.',
+    'NFPA 96 kitchen hood installation, steel ductwork, exhaust fans and air coolers nationwide in Malaysia. CIDB M01 contractor. Free site inspection.',
   url: siteUrl,
   ogImage: `${siteUrl}/og-image.jpg`,
 

@@ -60,7 +60,7 @@ const items: ExpertiseCard[] = [
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="relative bg-black py-16 sm:py-24 px-5 sm:px-6 overflow-hidden">
+    <section id="expertise" className="relative bg-zinc-950 py-16 sm:py-24 px-5 sm:px-6 overflow-hidden">
       {/* Top divider */}
       <div
         aria-hidden="true"
@@ -108,13 +108,13 @@ export default function Expertise() {
                       )}
 
                       {/* Solid Centered Timeline Node (Masks rail underneath) */}
-                      <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-xl bg-black border-2 border-orange-500 shadow-lg shadow-orange-500/15 text-orange-500 group-hover:bg-orange-500 group-hover:text-black group-hover:scale-110 transition-all duration-300">
+                      <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-950 border-2 border-orange-500 shadow-lg shadow-orange-500/15 text-orange-500 group-hover:bg-orange-500 group-hover:text-black group-hover:scale-110 transition-all duration-300">
                         <Icon size={20} strokeWidth={2} />
                       </div>
                     </div>
 
                     {/* Timeline Card */}
-                    <div className="flex-1 flex flex-col justify-between bg-gray-950/90 border border-gray-800/90 hover:border-orange-500/50 hover:bg-gray-900/60 transition-colors duration-300 rounded-2xl p-6 shadow-lg shadow-black/50 card-lift">
+                    <div className="flex-1 flex flex-col justify-between rounded-2xl p-6 card-lift">
                       <div>
                         {/* Header within card */}
                         <div className="flex items-center justify-between gap-2 mb-3">
@@ -142,7 +142,7 @@ export default function Expertise() {
 
                         {/* Short Description */}
                         <p
-                          className="text-sm text-gray-300 leading-relaxed mb-5 min-h-[38px]"
+                          className="text-sm text-zinc-300 leading-relaxed mb-5 min-h-[38px]"
                           style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                         >
                           {shortDesc}
@@ -150,10 +150,10 @@ export default function Expertise() {
                       </div>
 
                       {/* 3 Bullet Points */}
-                      <div className="pt-4 border-t border-gray-800/80">
+                      <div className="pt-4 border-t border-white/10">
                         <ul className="flex flex-col gap-2">
                           {points.map((pt, pIdx) => (
-                            <li key={pIdx} className="flex items-start gap-2 text-sm text-gray-300">
+                            <li key={pIdx} className="flex items-start gap-2 text-sm text-zinc-300">
                               <Check size={14} className="text-orange-500 mt-0.5 flex-shrink-0" />
                               <span className="leading-snug">{pt}</span>
                             </li>
@@ -172,19 +172,19 @@ export default function Expertise() {
             {/* Continuous Vertical Timeline Connector Rail */}
             <div
               aria-hidden="true"
-              className="absolute left-6 sm:left-8 top-6 bottom-12 w-[2px] bg-gradient-to-b from-orange-500 via-orange-500/70 to-gray-800 -translate-x-1/2 z-0"
+              className="absolute left-6 sm:left-8 top-6 bottom-12 w-[2px] bg-gradient-to-b from-orange-500 via-orange-500/70 to-zinc-800 -translate-x-1/2 z-0"
             />
 
             <div className="stagger flex flex-col gap-8 sm:gap-10">
               {items.map(({ id, step, category, title, shortDesc, points, Icon }) => (
                 <div key={id} className="relative flex items-start gap-4 sm:gap-6 group">
                   {/* Timeline Node on vertical rail */}
-                  <div className="relative z-10 -ml-6 sm:-ml-8 flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-black border-2 border-orange-500 text-orange-500 shadow-lg shadow-orange-500/20 group-hover:bg-orange-500 group-hover:text-black transition-all duration-300">
+                  <div className="relative z-10 -ml-6 sm:-ml-8 flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-950 border-2 border-orange-500 text-orange-500 shadow-lg shadow-orange-500/20 group-hover:bg-orange-500 group-hover:text-black transition-all duration-300">
                     <Icon size={20} strokeWidth={2} />
                   </div>
 
                   {/* Card next to vertical timeline rail */}
-                  <div className="flex-1 bg-gray-950/90 border border-gray-800/90 hover:border-orange-500/50 hover:bg-gray-900/60 transition-all rounded-2xl p-5 sm:p-6 shadow-lg shadow-black/50">
+                  <div className="flex-1 card-lift rounded-2xl p-5 sm:p-6">
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <span
                         className="text-xs font-bold tracking-wider uppercase text-orange-400/90"
@@ -208,16 +208,16 @@ export default function Expertise() {
                     </h3>
 
                     <p
-                      className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4"
+                      className="text-sm sm:text-base text-zinc-300 leading-relaxed mb-4"
                       style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                     >
                       {shortDesc}
                     </p>
 
-                    <div className="pt-3 border-t border-gray-800/80">
+                    <div className="pt-3 border-t border-white/10">
                       <ul className="flex flex-col gap-2">
                         {points.map((pt, pIdx) => (
-                          <li key={pIdx} className="flex items-start gap-2 text-sm sm:text-base text-gray-300">
+                          <li key={pIdx} className="flex items-start gap-2 text-sm sm:text-base text-zinc-300">
                             <Check size={14} className="text-orange-500 mt-0.5 flex-shrink-0" />
                             <span className="leading-snug">{pt}</span>
                           </li>
@@ -235,7 +235,7 @@ export default function Expertise() {
       {/* Bottom divider */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"
       />
     </section>
   )

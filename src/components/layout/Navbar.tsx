@@ -15,7 +15,7 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-30">
       {/* ── Desktop top bar (hidden below lg) ── */}
-      <div className="hidden lg:block bg-black/85 backdrop-blur-md border-b border-gray-800/60">
+      <div className="hidden lg:block bg-black/85 backdrop-blur-md border-b border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
           {/* Logo + Brand Name */}
           <a
@@ -46,7 +46,7 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
               <a
                 key={link.href}
                 href={link.href}
-                className="relative text-xs xl:text-sm font-semibold tracking-widest uppercase text-gray-300 hover:text-orange-500 transition-colors duration-200 group"
+                className="relative text-xs xl:text-sm font-semibold tracking-widest uppercase text-zinc-300 hover:text-orange-500 transition-colors duration-200 group"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 {link.label}
@@ -61,7 +61,7 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat with Steel Duct on WhatsApp"
-              className="ml-2 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 text-xs xl:text-sm font-extrabold tracking-wider uppercase transition-all duration-200 shadow-lg shadow-[#25D366]/25 hover:shadow-[#25D366]/40 hover:-translate-y-0.5"
+              className="ml-2 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-zinc-950 text-xs xl:text-sm font-extrabold tracking-wider uppercase transition-all duration-200 shadow-lg shadow-[#25D366]/25 hover:shadow-[#25D366]/40 hover:-translate-y-0.5"
               style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
             >
               <WhatsAppIcon size={16} />
@@ -72,7 +72,7 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
       </div>
 
       {/* ── Mobile & Tablet header (hidden on lg and above) ── */}
-      <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-black/85 backdrop-blur-md border-b border-gray-800/60">
+      <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-black/85 backdrop-blur-md border-b border-white/10">
         <a
           href="#home"
           aria-label="Steel Duct – Home"
@@ -102,7 +102,7 @@ export default function Navbar({ onMenuOpen }: NavbarProps) {
             onClick={onMenuOpen}
             aria-label="Open navigation menu"
             aria-expanded={false}
-            className="p-2 rounded-md bg-gray-900 border border-gray-700/60 text-gray-300 hover:text-orange-500 hover:border-orange-500/50 transition-all duration-200"
+            className="p-2 rounded-md bg-zinc-900 border border-zinc-700/60 text-zinc-300 hover:text-orange-500 hover:border-orange-500/50 transition-all duration-200"
           >
             <Menu size={22} strokeWidth={2.5} />
           </button>

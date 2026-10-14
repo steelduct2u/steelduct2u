@@ -37,37 +37,12 @@ export const metadata: Metadata = {
 
   // ── Clean, authoritative title without keyword stuffing ───────────────────
   title: {
-    default: 'Steel Duct Environmental | Commercial Ventilation & HVAC Contractor Malaysia',
+    default: 'Kitchen Hood Installation Malaysia | Steel Duct HVAC Contractor',
     template: '%s | Steel Duct Environmental',
   },
 
   // ── Natural, engaging meta description (human-first, concise) ─────────────
   description: siteConfig.description,
-
-  // ── Comprehensive Search Engine & Crawler Keywords (EN & BM) ───────────────
-  keywords: [
-    'Steel Duct Environmental',
-    'NFPA 96 kitchen hood installation Malaysia',
-    'certified HVAC kitchen hood contractor',
-    'commercial kitchen ventilation Malaysia',
-    'kitchen hood ductwork',
-    'exhaust fan installation Malaysia',
-    'commercial HVAC contractor',
-    'steel ductwork installation Malaysia',
-    'galvanised iron duct',
-    'stainless steel ducting Selangor',
-    'commercial air cooler',
-    'grease duct cleaning',
-    'kitchen exhaust hood repair',
-    'CIDB M01 contractor',
-    'DOSH IAQ compliance Malaysia',
-    'pemasangan ducting dapur',
-    'servis cuci kitchen hood',
-    'kontraktor HVAC Kuala Lumpur',
-    'ekzos fan industri',
-    'mechanical ventilation air conditioning MVAC',
-    'Selangor ventilation specialist',
-  ],
 
   // ── Canonical & Alternates ─────────────────────────────────────────────────
   alternates: {
@@ -115,9 +90,8 @@ export const metadata: Metadata = {
     locale: 'en_MY',
     url: siteUrl,
     siteName: 'Steel Duct Environmental Sdn Bhd',
-    title: 'Steel Duct Environmental | Commercial Ventilation & HVAC Contractor',
-    description:
-      'Custom kitchen hood ductwork, industrial exhaust fans, evaporative coolers, and commercial HVAC solutions in Malaysia. Certified CIDB M01 engineering team.',
+    title: 'Kitchen Hood Installation Malaysia | Steel Duct HVAC Contractor',
+    description: siteConfig.description,
     images: [
       {
         url: siteConfig.ogImage,
@@ -131,9 +105,8 @@ export const metadata: Metadata = {
   // ── Twitter Card ───────────────────────────────────────────────────────────
   twitter: {
     card: 'summary_large_image',
-    title: 'Steel Duct Environmental | Commercial Ventilation & HVAC Contractor',
-    description:
-      'Custom kitchen hood ductwork, industrial exhaust fans, evaporative coolers, and commercial HVAC solutions in Malaysia. Certified CIDB M01 engineering team.',
+    title: 'Kitchen Hood Installation Malaysia | Steel Duct HVAC Contractor',
+    description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
 

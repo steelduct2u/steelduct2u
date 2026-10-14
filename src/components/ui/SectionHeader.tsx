@@ -32,7 +32,7 @@ export default function SectionHeader({ eyebrow, title, accent, children, id }: 
 
       {children && (
         <p
-          className="max-w-2xl text-gray-300 text-base sm:text-lg leading-relaxed"
+          className="max-w-2xl text-zinc-400 text-sm sm:text-base leading-relaxed"
           style={{ fontFamily: 'var(--font-inter), sans-serif' }}
         >
           {children}

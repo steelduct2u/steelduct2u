@@ -195,10 +195,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-black pt-28 pb-44 lg:pb-28"
+      className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-zinc-950 pt-28 pb-44 lg:pb-28"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      {/* h1 tetap (keyword utama) — tajuk slide visual ialah <p> supaya h1 tidak bertukar */}
+      <h1 className="sr-only">Kitchen Hood Installation Malaysia — NFPA 96 HVAC &amp; Steel Ductwork Contractor</h1>
       {/* ── Background Images Layer with Next.js Image Optimization & Priority Preload ── */}
       {slides.map((s, idx) => {
         const isCurrent = idx === current
@@ -227,7 +229,7 @@ export default function Hero() {
                 src={s.bgImage}
                 srcSet={heroSrcSet(s.bgImage)}
                 sizes="100vw"
-                alt=""
+                alt={idx === 0 ? 'Kitchen hood and ductwork installation by Steel Duct in Malaysia' : ''}
                 decoding="async"
                 fetchPriority={idx === 0 ? 'high' : 'low'}
                 loading={idx === 0 ? 'eager' : 'lazy'}
@@ -310,7 +312,7 @@ export default function Hero() {
             </div>
 
             {/* Main Headline */}
-            <h1
+            <p
               className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] xl:text-[3rem] font-extrabold leading-[1.18] tracking-tight text-white mb-6 drop-shadow-md"
               style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
             >
@@ -323,11 +325,11 @@ export default function Hero() {
                   isLeft ? '' : 'lg:ml-auto hero-underline--right',
                 ].join(' ')}
               />
-            </h1>
+            </p>
 
             {/* Description */}
             <p
-              className="text-lg sm:text-xl text-gray-200 leading-relaxed mb-8 drop-shadow"
+              className="text-lg sm:text-xl text-zinc-200 leading-relaxed mb-8 drop-shadow"
               style={{ fontFamily: 'var(--font-inter), sans-serif' }}
             >
               {slide.description}
@@ -345,7 +347,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={slide.ctaLabel}
-                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl shadow-[#25D366]/30 hover:-translate-y-px"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-zinc-950 font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl shadow-[#25D366]/30 hover:-translate-y-px"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 <WhatsAppIcon size={18} />
@@ -358,7 +360,7 @@ export default function Hero() {
               </a>
               <a
                 href={slide.secondaryHref}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md bg-black/50 backdrop-blur-md border border-gray-700 hover:border-orange-500 text-gray-200 hover:text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md bg-black/50 backdrop-blur-md border border-zinc-700 hover:border-orange-500 text-zinc-200 hover:text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 {slide.secondaryLabel}
@@ -368,7 +370,7 @@ export default function Hero() {
             {/* Value & Guarantee Strip */}
             <div
               className={[
-                'mt-7 pt-5 border-t border-gray-800/80 flex flex-wrap items-center gap-2.5 sm:gap-3',
+                'mt-7 pt-5 border-t border-white/10 flex flex-wrap items-center gap-2.5 sm:gap-3',
                 isLeft ? 'justify-start' : 'justify-start lg:justify-end',
               ].join(' ')}
             >
@@ -376,11 +378,11 @@ export default function Hero() {
                 <CheckCircle2 size={14} className="text-orange-500 flex-shrink-0" />
                 <span>Free Site Inspection &amp; Advice</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/60 border border-gray-800 text-gray-200 text-xs font-medium backdrop-blur-md">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/60 border border-white/10 text-zinc-200 text-xs font-medium backdrop-blur-md">
                 <CheckCircle2 size={14} className="text-emerald-400 flex-shrink-0" />
                 <span>Transparent Itemised Quotation</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/60 border border-gray-800 text-gray-200 text-xs font-medium backdrop-blur-md">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/60 border border-white/10 text-zinc-200 text-xs font-medium backdrop-blur-md">
                 <ShieldCheck size={14} className="text-orange-400 flex-shrink-0" />
                 <span>Quality Within Budget. Guaranteed.</span>
               </div>
@@ -394,7 +396,7 @@ export default function Hero() {
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/70 backdrop-blur-md border border-gray-600 hover:border-orange-500 hover:bg-orange-500/20 text-white hover:text-orange-400 transition-all duration-200 cursor-pointer shadow-xl"
+        className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/70 backdrop-blur-md border border-zinc-600 hover:border-orange-500 hover:bg-orange-500/20 text-white hover:text-orange-400 transition-all duration-200 cursor-pointer shadow-xl"
       >
         <ChevronLeft size={22} strokeWidth={2.5} />
       </button>
@@ -402,7 +404,7 @@ export default function Hero() {
       <button
         onClick={next}
         aria-label="Next slide"
-        className="hidden md:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/70 backdrop-blur-md border border-gray-600 hover:border-orange-500 hover:bg-orange-500/20 text-white hover:text-orange-400 transition-all duration-200 cursor-pointer shadow-xl"
+        className="hidden md:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-30 items-center justify-center w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/70 backdrop-blur-md border border-zinc-600 hover:border-orange-500 hover:bg-orange-500/20 text-white hover:text-orange-400 transition-all duration-200 cursor-pointer shadow-xl"
       >
         <ChevronRight size={22} strokeWidth={2.5} />
       </button>
@@ -415,7 +417,7 @@ export default function Hero() {
         <button
           onClick={prev}
           aria-label="Previous slide"
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-gray-700 text-gray-300 active:bg-orange-500 active:text-black transition-colors"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 text-zinc-300 active:bg-orange-500 active:text-black transition-colors"
         >
           <ChevronLeft size={16} strokeWidth={2.5} />
         </button>
@@ -423,7 +425,7 @@ export default function Hero() {
         {/* Slide counter */}
         <span
           aria-hidden="true"
-          className="hidden md:inline text-xs font-bold tracking-[0.2em] text-gray-400 tabular-nums mr-2"
+          className="hidden md:inline text-xs font-bold tracking-[0.2em] text-zinc-400 tabular-nums mr-2"
           style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
         >
           <span className="text-white">{String(current + 1).padStart(2, '0')}</span>
@@ -474,7 +476,7 @@ export default function Hero() {
         <button
           onClick={next}
           aria-label="Next slide"
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-gray-700 text-gray-300 active:bg-orange-500 active:text-black transition-colors"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 text-zinc-300 active:bg-orange-500 active:text-black transition-colors"
         >
           <ChevronRight size={16} strokeWidth={2.5} />
         </button>

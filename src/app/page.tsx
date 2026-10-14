@@ -14,7 +14,7 @@ import BackToTop from '@/components/ui/BackToTop'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-orange-500 selection:text-black">
+    <div className="min-h-screen bg-zinc-950 text-white selection:bg-orange-500 selection:text-black">
       {/* Navigation */}
       <Navigation />
 

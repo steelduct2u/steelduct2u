@@ -52,7 +52,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative bg-gray-950 py-16 sm:py-24 px-5 sm:px-6">
+    <section id="contact" className="relative bg-zinc-950 py-16 sm:py-24 px-5 sm:px-6">
       {/* Top divider */}
       <div
         aria-hidden="true"
@@ -107,7 +107,7 @@ export default function Contact() {
                 >
                   Free Site Inspection, Expert Advice &amp; Quotation
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-300">
+                <p className="text-xs sm:text-sm text-zinc-300">
                   Quality engineering, scoped to fit your budget.
                 </p>
               </div>
@@ -124,8 +124,8 @@ export default function Contact() {
           </div>
 
           {/* ── Direct Email Inquiry Form ── */}
-          <div className="mb-16 rounded-3xl bg-black/70 border border-gray-800 p-6 sm:p-10 shadow-2xl backdrop-blur-md">
-            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-800/80">
+          <div className="mb-16 rounded-3xl bg-zinc-900/40 border border-white/10 p-6 sm:p-10 shadow-2xl backdrop-blur-md">
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
               <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366]">
                 <WhatsAppIcon size={22} />
               </div>
@@ -136,7 +136,7 @@ export default function Contact() {
                 >
                   WhatsApp Inquiry Form
                 </h3>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-zinc-400">
                   Fill in the form and click <span className="text-green-400 font-semibold">Send Now</span> — your inquiry will be sent directly to our WhatsApp.
                 </p>
               </div>
@@ -153,7 +153,7 @@ export default function Contact() {
                 >
                   WhatsApp Ready!
                 </h4>
-                <p className="text-sm text-gray-300 max-w-lg mx-auto mb-6 leading-relaxed">
+                <p className="text-sm text-zinc-300 max-w-lg mx-auto mb-6 leading-relaxed">
                   Your inquiry has been prepared. If WhatsApp did not open automatically, click the button below:
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-4">
@@ -161,7 +161,7 @@ export default function Contact() {
                     href={inquiryUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 font-extrabold text-xs uppercase tracking-wider transition-all duration-200"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#25D366] hover:bg-[#20ba5a] text-zinc-950 font-extrabold text-xs uppercase tracking-wider transition-all duration-200"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     <WhatsAppIcon size={16} />
@@ -180,7 +180,7 @@ export default function Contact() {
                         message: '',
                       })
                     }}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-900 hover:bg-gray-800 border border-gray-700 text-gray-300 hover:text-white font-semibold text-xs uppercase tracking-wider transition-all duration-200"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 hover:text-white font-semibold text-xs uppercase tracking-wider transition-all duration-200"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     Submit Another Inquiry
@@ -206,7 +206,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Ahmad Razif / Restaurant ABC"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                     />
                   </div>
 
@@ -226,7 +226,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="e.g. +60 12-345 6789"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                     />
                   </div>
 
@@ -245,7 +245,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. yourname@example.com"
-                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                     />
                   </div>
 
@@ -262,10 +262,10 @@ export default function Contact() {
                       id="inquiry-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                     >
                       {serviceOptions.map((opt) => (
-                        <option key={opt} value={opt} className="bg-gray-900 text-white">
+                        <option key={opt} value={opt} className="bg-zinc-900 text-white">
                           {opt}
                         </option>
                       ))}
@@ -288,7 +288,7 @@ export default function Contact() {
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     placeholder="e.g. Petaling Jaya, Selangor / KLCC / Shah Alam"
-                    className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
+                    className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                   />
                 </div>
 
@@ -308,7 +308,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your kitchen exhaust hood requirements, ductwork dimensions, factory specifications, or site inspection requests..."
-                    className="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
+                    className="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-500 text-sm focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-500/15 transition-shadow"
                   />
                 </div>
 
@@ -316,7 +316,7 @@ export default function Contact() {
                 <div className="flex justify-end pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl shadow-[#25D366]/25 hover:shadow-[#25D366]/40 hover:-translate-y-0.5 cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-zinc-950 font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl shadow-[#25D366]/25 hover:shadow-[#25D366]/40 hover:-translate-y-0.5 cursor-pointer"
                     style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   >
                     <WhatsAppIcon size={16} />
@@ -330,13 +330,13 @@ export default function Contact() {
           {/* Info cards grid (3 cards: Office Address, Office Phone, WhatsApp Direct Line) */}
           <div className="stagger grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Address Card */}
-            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-gray-900/50 to-black border border-gray-800 hover:border-orange-500/40 h-full">
+            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl h-full">
               <div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 mb-5">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-900 border border-white/10 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 mb-5">
                   <MapPin
                     size={22}
                     strokeWidth={1.75}
-                    className="text-gray-400 group-hover:text-orange-500 transition-colors duration-300"
+                    className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5 min-h-[130px]">
@@ -347,7 +347,7 @@ export default function Contact() {
                     Office Address
                   </p>
                   <p
-                    className="text-base text-gray-300 leading-relaxed"
+                    className="text-base text-zinc-300 leading-relaxed"
                     style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                   >
                     {siteConfig.address.street},
@@ -364,7 +364,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View Steel Duct Office Address on Google Maps"
-                className="mt-6 inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-md bg-gray-900 hover:bg-gray-850 border border-gray-800 hover:border-orange-500/50 text-orange-500 hover:text-orange-400 text-xs font-bold tracking-wider uppercase transition-all duration-200"
+                className="mt-6 inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-md bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-orange-500/50 text-orange-500 hover:text-orange-400 text-xs font-bold tracking-wider uppercase transition-all duration-200"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 View on Google Maps
@@ -373,13 +373,13 @@ export default function Contact() {
             </div>
 
             {/* Office Phone Card */}
-            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-gray-900/50 to-black border border-gray-800 hover:border-orange-500/40 h-full">
+            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl h-full">
               <div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 mb-5">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-900 border border-white/10 group-hover:border-orange-500/40 group-hover:bg-orange-500/10 transition-all duration-300 mb-5">
                   <Phone
                     size={22}
                     strokeWidth={1.75}
-                    className="text-gray-400 group-hover:text-orange-500 transition-colors duration-300"
+                    className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5 min-h-[130px]">
@@ -397,7 +397,7 @@ export default function Contact() {
                   >
                     {siteConfig.contact.phone}
                   </a>
-                  <p className="text-sm text-gray-400 mt-1 leading-relaxed">
+                  <p className="text-sm text-zinc-400 mt-1 leading-relaxed">
                     Operating Hours:
                     <br />
                     {siteConfig.hours.days}: {siteConfig.hours.time}
@@ -408,7 +408,7 @@ export default function Contact() {
               <a
                 href={`tel:${siteConfig.contact.phoneRaw}`}
                 aria-label={`Call Steel Duct office phone at ${siteConfig.contact.phone}`}
-                className="mt-6 inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-md bg-gray-900 hover:bg-gray-850 border border-gray-800 hover:border-orange-500/50 text-orange-500 hover:text-orange-400 text-xs font-bold tracking-wider uppercase transition-all duration-200"
+                className="mt-6 inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-md bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-orange-500/50 text-orange-500 hover:text-orange-400 text-xs font-bold tracking-wider uppercase transition-all duration-200"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 Call Office Directly
@@ -417,7 +417,7 @@ export default function Contact() {
             </div>
 
             {/* WhatsApp Direct Line Card */}
-            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-[#25D366]/10 to-black border border-orange-500/40 hover:border-orange-500/70 h-full">
+            <div className="card-lift group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl h-full !border-orange-500/40">
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#25D366]/10 border border-[#25D366]/40 text-[#25D366] transition-all duration-300">
@@ -448,7 +448,7 @@ export default function Contact() {
                   >
                     {siteConfig.contact.phone}
                   </a>
-                  <p className="text-sm text-gray-400 mt-1 leading-relaxed">
+                  <p className="text-sm text-zinc-400 mt-1 leading-relaxed">
                     Available for immediate project consultations, PDF quotation sharing, and site inspections.
                   </p>
                 </div>
@@ -460,7 +460,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Chat with Steel Duct on WhatsApp: ${siteConfig.contact.phone}`}
-                className="mt-6 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 text-xs font-extrabold tracking-wider uppercase transition-all duration-200 shadow-md shadow-[#25D366]/20"
+                className="mt-6 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-zinc-950 text-xs font-extrabold tracking-wider uppercase transition-all duration-200 shadow-md shadow-[#25D366]/20"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 <WhatsAppIcon size={16} />
@@ -474,7 +474,7 @@ export default function Contact() {
       {/* Bottom divider */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"
       />
     </section>
   )

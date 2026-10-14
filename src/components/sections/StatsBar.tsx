@@ -52,7 +52,7 @@ export default function StatsBar() {
       className="relative z-30 translate-y-0 mt-6 sm:mt-0 sm:-translate-y-8 lg:-translate-y-1/2 mb-10 sm:-mb-10 lg:-mb-14 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="relative rounded-2xl bg-gray-950/95 backdrop-blur-xl border border-gray-800/90 hover:border-gray-700 transition-colors duration-300 shadow-2xl shadow-black/90 p-5 sm:p-6 lg:py-6 lg:px-8 overflow-hidden">
+        <div className="relative rounded-2xl bg-zinc-950/95 backdrop-blur-xl border border-white/10 hover:border-zinc-700 transition-colors duration-300 shadow-2xl shadow-black/90 p-5 sm:p-6 lg:py-6 lg:px-8 overflow-hidden">
 
           {/* Background subtle radial gradient */}
           <div
@@ -61,14 +61,14 @@ export default function StatsBar() {
           />
 
           {/* Top header status bar (Single set, no dots, pure balance) */}
-          <div className="relative z-10 flex items-center justify-between gap-2 mb-5 pb-3 border-b border-gray-900/90">
+          <div className="relative z-10 flex items-center justify-between gap-2 mb-5 pb-3 border-b border-white/10">
             <div className="flex items-center gap-2">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span
-                className="text-xs font-semibold tracking-widest uppercase text-gray-400"
+                className="text-xs font-semibold tracking-widest uppercase text-zinc-400"
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 Service Verification &amp; Engineering Standards
@@ -84,11 +84,11 @@ export default function StatsBar() {
           </div>
 
           {/* 4 Balanced Number Fact Columns */}
-          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-0 lg:divide-x lg:divide-gray-800/80">
+          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-0 lg:divide-x lg:divide-zinc-800/80">
             {bestFacts.map(({ id, value, prefix, suffix, label, sub, Icon }) => (
               <div
                 key={id}
-                className="group flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3.5 sm:p-4 lg:p-0 lg:px-6 xl:px-7 first:lg:pl-2 last:lg:pr-2 rounded-xl lg:rounded-none bg-gray-900/40 lg:bg-transparent border border-gray-800/60 lg:border-0 hover:border-orange-500/30 transition-all duration-300 justify-start"
+                className="group flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3.5 sm:p-4 lg:p-0 lg:px-6 xl:px-7 first:lg:pl-2 last:lg:pr-2 rounded-xl lg:rounded-none bg-zinc-900/40 lg:bg-transparent border border-white/10 lg:border-0 hover:border-orange-500/30 transition-all duration-300 justify-start"
               >
                 {/* Icon */}
                 <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-500 group-hover:border-orange-500/60 group-hover:bg-orange-500/15 group-hover:scale-105 transition-all duration-300 shadow-sm">
@@ -112,7 +112,7 @@ export default function StatsBar() {
                     {label}
                   </span>
                   <span
-                    className="hidden sm:block text-sm text-gray-400 mt-0.5 leading-snug"
+                    className="hidden sm:block text-sm text-zinc-400 mt-0.5 leading-snug"
                     style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                   >
                     {sub}

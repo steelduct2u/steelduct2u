@@ -169,7 +169,7 @@ export default function Gallery() {
   }, [selectedItem, handleCloseModal, handleNextItem, handlePrevItem])
 
   return (
-    <section id="gallery" className="relative bg-black py-16 sm:py-24 px-5 sm:px-6 overflow-hidden">
+    <section id="gallery" className="relative bg-zinc-950 py-16 sm:py-24 px-5 sm:px-6 overflow-hidden">
       {/* Top divider with warm gradient */}
       <div
         aria-hidden="true"
@@ -220,7 +220,7 @@ export default function Gallery() {
                     'whitespace-nowrap flex-shrink-0 px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer',
                     isActive
                       ? 'bg-orange-500 text-black shadow-lg shadow-orange-500/25 scale-100 sm:scale-105'
-                      : 'bg-gray-900/90 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 hover:border-gray-700',
+                      : 'bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 hover:border-zinc-700',
                   ].join(' ')}
                   style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                 >
@@ -235,10 +235,10 @@ export default function Gallery() {
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="card-lift group relative flex flex-col w-[82%] min-[480px]:w-[60%] sm:w-auto flex-shrink-0 rounded-3xl bg-gray-950/90 border border-gray-800/90 hover:border-orange-500/60 overflow-hidden shadow-2xl text-left cursor-pointer"
+                className="card-lift group relative flex flex-col w-[82%] min-[480px]:w-[60%] sm:w-auto flex-shrink-0 rounded-3xl overflow-hidden text-left cursor-pointer"
               >
                 {/* Image Container with Zoom Effect */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-900">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-900">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -260,16 +260,16 @@ export default function Gallery() {
                   </div>
 
                   {/* View Details Icon */}
-                  <div className="absolute top-3 right-3 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-black/80 backdrop-blur-md border border-gray-700 text-gray-300 group-hover:text-orange-400 group-hover:border-orange-500 transition-colors duration-200">
+                  <div className="absolute top-3 right-3 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 text-zinc-300 group-hover:text-orange-400 group-hover:border-orange-500 transition-colors duration-200">
                     <Maximize2 size={14} />
                   </div>
                 </div>
 
                 {/* Content Box */}
-                <div className="flex flex-col flex-grow p-5 justify-between bg-gradient-to-b from-gray-950 to-black">
+                <div className="flex flex-col flex-grow p-5 justify-between bg-gradient-to-b from-zinc-950 to-black">
                   <div>
                     {/* Location tag */}
-                    <div className="flex items-center gap-1 text-xs text-gray-400 mb-2 font-medium">
+                    <div className="flex items-center gap-1 text-xs text-zinc-400 mb-2 font-medium">
                       <MapPin size={13} className="text-orange-500 flex-shrink-0" />
                       <span>{item.location}</span>
                     </div>
@@ -291,7 +291,7 @@ export default function Gallery() {
 
                     {/* Description */}
                     <p
-                      className="text-sm sm:text-sm text-gray-300 leading-relaxed mb-4 line-clamp-3"
+                      className="text-sm sm:text-sm text-zinc-300 leading-relaxed mb-4 line-clamp-3"
                       style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                     >
                       {item.description}
@@ -301,7 +301,7 @@ export default function Gallery() {
                     <div className="mb-4">
                       <ul className="space-y-2">
                         {item.specifications.slice(0, 2).map((spec, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm sm:text-xs text-gray-200">
+                          <li key={i} className="flex items-start gap-2 text-sm sm:text-xs text-zinc-200">
                             <CheckCircle2
                               size={15}
                               className="text-emerald-400 flex-shrink-0 mt-0.5"
@@ -314,7 +314,7 @@ export default function Gallery() {
                   </div>
 
                   {/* Card bottom action */}
-                  <div className="mt-4 pt-3.5 border-t border-gray-900 flex items-center justify-between">
+                  <div className="mt-4 pt-3.5 border-t border-white/10 flex items-center justify-between">
                     <span className="text-xs font-bold text-orange-500 group-hover:text-orange-400 tracking-wide uppercase transition-colors">
                       View Specifications
                     </span>
@@ -326,7 +326,7 @@ export default function Gallery() {
               </div>
             ))}
           </div>
-          <p aria-hidden="true" className="sm:hidden mt-3 text-center text-xs text-gray-500">
+          <p aria-hidden="true" className="sm:hidden mt-3 text-center text-xs text-zinc-500">
             Swipe to see more projects →
           </p>
         </div>
@@ -349,7 +349,7 @@ export default function Gallery() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* ── Gambar ── */}
-              <div className="relative w-full md:w-5/12 h-36 min-[400px]:h-44 sm:h-56 md:h-auto md:min-h-[440px] bg-black flex-shrink-0">
+              <div className="relative w-full md:w-5/12 h-36 min-[400px]:h-44 sm:h-56 md:h-auto md:min-h-[440px] bg-zinc-950 flex-shrink-0">
                 <Image
                   src={selectedItem.image}
                   alt={selectedItem.title}
@@ -376,7 +376,7 @@ export default function Gallery() {
                     handleCloseModal()
                   }}
                   aria-label="Close popup"
-                  className="absolute top-2.5 right-2.5 z-30 flex items-center justify-center w-10 h-10 rounded-full bg-black/75 hover:bg-black text-white border border-white/25 hover:border-orange-500 backdrop-blur-md active:scale-90 transition-all"
+                  className="absolute top-2.5 right-2.5 z-30 flex items-center justify-center w-10 h-10 rounded-full bg-black/75 hover:bg-zinc-950 text-white border border-white/25 hover:border-orange-500 backdrop-blur-md active:scale-90 transition-all"
                 >
                   <X size={20} strokeWidth={2.5} />
                 </button>
@@ -396,7 +396,7 @@ export default function Gallery() {
                           onClick()
                         }}
                         aria-label={label}
-                        className="pointer-events-auto flex items-center justify-center w-10 h-10 rounded-full bg-black/75 hover:bg-black border border-white/25 text-white backdrop-blur-md active:scale-95 transition-all"
+                        className="pointer-events-auto flex items-center justify-center w-10 h-10 rounded-full bg-black/75 hover:bg-zinc-950 border border-white/25 text-white backdrop-blur-md active:scale-95 transition-all"
                       >
                         <Icon size={20} strokeWidth={2.5} />
                       </button>
@@ -415,7 +415,7 @@ export default function Gallery() {
                   >
                     {selectedItem.title}
                   </h3>
-                  <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400">
+                  <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-400">
                     <span className="inline-flex items-center gap-1">
                       <MapPin size={13} className="text-orange-500" />
                       {selectedItem.location}
@@ -429,7 +429,7 @@ export default function Gallery() {
                   </div>
                 </div>
 
-                <p className="text-[13px] sm:text-sm text-gray-300 leading-relaxed line-clamp-3 md:line-clamp-none">
+                <p className="text-[13px] sm:text-sm text-zinc-300 leading-relaxed line-clamp-3 md:line-clamp-none">
                   {selectedItem.description}
                 </p>
 
@@ -440,14 +440,14 @@ export default function Gallery() {
                       <div className="flex items-start gap-2.5 px-3 py-2">
                         <Wrench size={14} className="text-orange-400 flex-shrink-0 mt-0.5" />
                         <dt className="sr-only">Scope</dt>
-                        <dd className="text-gray-200 leading-snug">{selectedItem.scope}</dd>
+                        <dd className="text-zinc-200 leading-snug">{selectedItem.scope}</dd>
                       </div>
                     )}
                     {selectedItem.compliance && (
                       <div className="flex items-start gap-2.5 px-3 py-2">
                         <ShieldCheck size={14} className="text-emerald-400 flex-shrink-0 mt-0.5" />
                         <dt className="sr-only">Compliance</dt>
-                        <dd className="text-gray-200 leading-snug">{selectedItem.compliance}</dd>
+                        <dd className="text-zinc-200 leading-snug">{selectedItem.compliance}</dd>
                       </div>
                     )}
                   </dl>
@@ -456,7 +456,7 @@ export default function Gallery() {
                 {/* Spesifikasi */}
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
                   {selectedItem.specifications.map((spec, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300 leading-snug">
+                    <li key={i} className="flex items-start gap-2 text-[13px] text-zinc-300 leading-snug">
                       <CheckCircle2 size={14} className="text-emerald-400 flex-shrink-0 mt-0.5" />
                       <span>{spec}</span>
                     </li>
@@ -470,7 +470,7 @@ export default function Gallery() {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto w-full inline-flex items-center justify-center gap-2 h-12 flex-shrink-0 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-gray-950 font-extrabold text-sm uppercase tracking-wider transition-all active:scale-[0.98] shadow-lg shadow-[#25D366]/25"
+                  className="mt-auto w-full inline-flex items-center justify-center gap-2 h-12 flex-shrink-0 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-zinc-950 font-extrabold text-sm uppercase tracking-wider transition-all active:scale-[0.98] shadow-lg shadow-[#25D366]/25"
                   style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
                   onClick={(e) => e.stopPropagation()}
                 >
