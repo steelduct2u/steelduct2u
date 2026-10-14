@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Montserrat, Inter } from 'next/font/google'
 import { siteConfig } from '@/config/site'
+import { jsonLdGraph, toJsonLd } from '@/config/schema'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -136,169 +137,6 @@ export const metadata: Metadata = {
   },
 }
 
-// ── Google Schema Graph (Compliant LocalBusiness, WebSite & FAQPage) ────────
-const jsonLdGraph = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': ['HVACBusiness', 'LocalBusiness'],
-      '@id': `${siteUrl}/#organization`,
-      name: siteConfig.name,
-      alternateName: siteConfig.alternateName,
-      description:
-        'Commercial kitchen ventilation, custom steel ductwork, industrial exhaust fans, and HVAC contracting services in Malaysia.',
-      url: siteUrl,
-      logo: `${siteUrl}/icon-512.png`,
-      image: siteConfig.ogImage,
-      telephone: siteConfig.contact.phoneRaw,
-      email: siteConfig.contact.email,
-      priceRange: '$$',
-      currenciesAccepted: 'MYR',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: siteConfig.address.street,
-        addressLocality: siteConfig.address.locality,
-        postalCode: siteConfig.address.postalCode,
-        addressRegion: siteConfig.address.region,
-        addressCountry: siteConfig.address.country,
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: siteConfig.address.geo.latitude,
-        longitude: siteConfig.address.geo.longitude,
-      },
-      openingHoursSpecification: [
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
-          ],
-          opens: '08:00',
-          closes: '18:00',
-        },
-      ],
-      areaServed: [
-        { '@type': 'Country', name: 'Malaysia' },
-        ...siteConfig.areaServed.map((name) => ({ '@type': 'State', name })),
-      ],
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Ventilation & Air Conditioning Services',
-        itemListElement: [
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Kitchen Hood Installation (NFPA 96 & Certified HVAC)',
-              description:
-                'Supply and installation of NFPA 96 compliant kitchen hood duct systems by certified HVAC engineers, ensuring liquid-tight grease extraction, fire safety, and clean indoor air.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Exhaust Fan Installation',
-              description:
-                'Supply and installation of industrial and residential exhaust fans for bathrooms, kitchens, and commercial spaces.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Air Cooler Installation',
-              description:
-                'Installation and servicing of evaporative and mechanical air cooling units for commercial areas.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Air Fresher Systems',
-              description:
-                'Integrated air freshening and deodorizing systems that reduce odours and improve indoor air quality.',
-            },
-          },
-        ],
-      },
-    },
-    {
-      '@type': 'FAQPage',
-      '@id': `${siteUrl}/#faq`,
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'What is the difference between a standard air conditioner and a commercial HVAC system?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'A standard residential unit only cools a single room, whereas a commercial HVAC system coordinates building-wide temperature, fresh air intake, humidity control, and exhaust ventilation to ensure safety and comfort.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Is Steel Duct certified by CIDB in Malaysia?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. Steel Duct is registered under CIDB M01 for Air Conditioning and Mechanical Ventilation systems, with all installations meeting local electrical and safety codes.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'What materials are used for commercial kitchen exhaust ductwork?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'We supply and install grease ducts using heavy-gauge stainless steel (Grade 304) and galvanised iron with liquid-tight welded seams to prevent oil leakage and minimise fire risk.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How long does a typical kitchen hood installation take?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Most commercial kitchen installations take 1 to 2 working days. Larger multi-level routing may require additional time for installation and airflow balancing.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Do you offer routine maintenance for exhaust systems?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. We provide scheduled servicing that includes fan impeller cleaning, motor inspections, belt adjustments, duct checks, and airflow testing.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How do air cooling and freshening systems improve workplace comfort?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Evaporative coolers lower ambient temperatures cost-effectively in open kitchens and workshops, while integrated deodorising systems effectively reduce persistent cooking odours.',
-          },
-        },
-      ],
-    },
-    {
-      '@type': 'WebSite',
-      '@id': `${siteUrl}/#website`,
-      url: siteUrl,
-      name: siteConfig.name,
-      alternateName: [siteConfig.shortName, siteConfig.alternateName],
-      description:
-        'Commercial kitchen ventilation, custom steel ductwork, industrial exhaust fans, and HVAC contracting services in Malaysia.',
-      inLanguage: 'en-MY',
-      publisher: {
-        '@id': `${siteUrl}/#organization`,
-      },
-    },
-  ],
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -312,7 +150,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
+          dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLdGraph) }}
         />
       </head>
       <body

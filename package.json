@@ -6,7 +6,8 @@
     "dev": "lsof -ti:3000 | xargs kill -9 2>/dev/null; npx next dev",
     "build": "lsof -ti:3000 | xargs kill -9 2>/dev/null; rm -rf .next 2>/dev/null; npx next build",
     "start": "lsof -ti:3000 | xargs kill -9 2>/dev/null; npx next start",
-    "lint": "npx next lint"
+    "lint": "npx next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "lucide-react": "0.488.0",

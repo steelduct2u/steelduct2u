@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { ArrowRight, Check } from 'lucide-react'
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon'
 import { siteConfig, whatsappLink } from '@/config/site'
+import { toJsonLd } from '@/config/schema'
 import { getServicePage, servicePages } from '@/config/services'
 
 export const dynamicParams = false
@@ -71,7 +72,7 @@ export default async function ServicePageRoute({ params }: { params: Promise<{ s
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }} />
 
       <header className="border-b border-white/10 bg-black/60 backdrop-blur-md">
         <div className="max-w-5xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
