@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Montserrat, Inter } from 'next/font/google'
 import { siteConfig } from '@/config/site'
 import { jsonLdGraph, toJsonLd } from '@/config/schema'
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -161,6 +162,7 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-inter), sans-serif' }}
       >
         {children}
+        <GoogleAnalytics />
       </body>
     </html>
   )

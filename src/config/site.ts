@@ -10,6 +10,9 @@ export const siteConfig = {
   description:
     'NFPA 96 kitchen hood installation, steel ductwork, exhaust fans and air coolers nationwide in Malaysia. CIDB M01 contractor. Free site inspection.',
   url: siteUrl,
+
+  // Google Analytics 4 (ID pengukuran, bukan rahsia)
+  analytics: { measurementId: 'G-JEVR84J8DN' },
   ogImage: `${siteUrl}/og-image.jpg`,
 
   // Contact details
