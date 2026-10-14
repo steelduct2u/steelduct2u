@@ -44,10 +44,10 @@ const mainServices: UnifiedService[] = [
     description:
       'Turnkey supply and installation of heavy-gauge Grade 304 stainless steel kitchen exhaust hoods and continuous liquid-tight welded grease ducting. Built to prevent grease leaks and meet BOMBA & local council inspection requirements.',
     highlights: [
-      'Continuous liquid-tight welded seams along the entire grease duct run (0% grease leak)',
+      'Continuous liquid-tight welded seams along the entire grease duct run (built to prevent grease leaks)',
       'High-efficiency stainless steel baffle grease filters with built-in oil drainage troughs',
       'Flush-mounted high-temperature LED lighting & zero-clearance wall fitting',
-      'Engineered airflow velocity (CFM) to capture 100% of cooking heat, smoke, and fumes',
+      'Engineered airflow velocity (CFM) to capture cooking heat, smoke, and fumes',
       'Built to NFPA 96, BOMBA MS 1472 and local council requirements',
     ],
     suitableFor: ['Restaurants', 'Hotel Kitchens', 'Central Kitchens', 'Cafes & Food Courts'],
@@ -95,7 +95,7 @@ const mainServices: UnifiedService[] = [
     title: 'Commercial Evaporative Air Coolers',
     subtitle: 'Cost-Effective Factory & Open-Area Temperature Control',
     description:
-      'High-performance commercial evaporative cooling units paired with insulated sheet metal duct drop distributors. Lowers indoor ambient temperatures by 4°C to 8°C while using up to 80% less electricity than traditional air-conditioning.',
+      'High-performance commercial evaporative cooling units paired with insulated sheet metal duct drop distributors. Helps lower indoor temperatures while using far less electricity than traditional air-conditioning.',
     highlights: [
       'High-density honeycomb evaporative cooling pads delivering continuous fresh, cool air',
       'Custom sheet metal duct drop distributors with 4-way adjustable directional louvres',
@@ -114,7 +114,7 @@ const mainServices: UnifiedService[] = [
     description:
       'Two-stage exhaust air purification combining high-voltage Electrostatic Precipitators (ESP) and activated carbon filter banks to eliminate dense cooking smoke, oil mist, and stubborn food odours before exterior discharge.',
     highlights: [
-      '95%+ capture rate of grease particulate, smoke, and oil mist via dual-pass ESP cells',
+      'Dual-pass ESP cells that capture grease particulate, smoke, and oil mist',
       'Virgin coconut-shell activated carbon filter modules that neutralize intense cooking odours',
       'Complies with Department of Occupational Safety & Health (DOSH) IAQ guidelines',
       'Protects nearby commercial neighbours and complies with local council clean air bylaws',
@@ -131,7 +131,7 @@ const ductMaterialGuide = [
     tag: 'Kitchen Exhaust & High Heat',
     desc: 'Heavy-gauge stainless steel with continuous TIG/MIG liquid-tight welded seams. Completely fire-rated and grease-leak proof for commercial restaurant hoods.',
     Icon: Flame,
-    specs: ['NFPA 96 & BOMBA MS 1472 compliant', '0% grease leakage guaranteed', 'Gasketed cleanout access doors'],
+    specs: ['NFPA 96 & BOMBA MS 1472 compliant', 'Liquid-tight welded construction', 'Gasketed cleanout access doors'],
   },
   {
     title: 'Galvanised Iron (GI) Central HVAC Ducts',

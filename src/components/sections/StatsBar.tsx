@@ -35,10 +35,10 @@ const bestFacts: StatFact[] = [
   },
   {
     id: 4,
-    value: 100,
-    suffix: '%',
-    label: 'Safety Code Compliant',
-    sub: 'BOMBA & ST Standards',
+    value: 16,
+    suffix: '',
+    label: 'States & Territories Served',
+    sub: 'Across Malaysia',
     Icon: ShieldCheck,
   },
 ]

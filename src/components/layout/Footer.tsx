@@ -139,7 +139,11 @@ export default function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
-          <p>Commercial Kitchen Ventilation &amp; HVAC Contractor — Serving All of Malaysia</p>
+          <p>
+            Commercial Kitchen Ventilation &amp; HVAC Contractor — Serving All of Malaysia{' '}
+            <span aria-hidden="true">&middot;</span>{' '}
+            <a href="/privacy-policy" className="hover:text-orange-400 transition-colors underline underline-offset-2">Privacy Policy</a>
+          </p>
         </div>
       </div>
     </footer>

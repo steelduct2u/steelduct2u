@@ -99,7 +99,7 @@ const galleryItems: GalleryItem[] = [
     scope: 'Electrostatic Precipitator (ESP) Supply, Ceiling Rigging & Power Wiring',
     compliance: 'DOE (Jabatan Alam Sekitar) Compliant • Shopping Mall Standard',
     specifications: [
-      'High-efficiency electrostatic oil & smoke precipitation (up to 95%+ efficiency)',
+      'High-efficiency electrostatic oil & smoke precipitation (high efficiency)',
       'Removes strong cooking odours, grease haze, fine particulates & cooking fumes',
       'Essential compliance for shopping malls, shoplots & enclosed commercial venues',
       'Heavy-duty ceiling mount with accessible quick-release servicing panels',

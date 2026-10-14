@@ -384,7 +384,7 @@ export default function Hero() {
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/60 border border-white/10 text-zinc-200 text-xs font-medium backdrop-blur-md">
                 <ShieldCheck size={14} className="text-orange-400 flex-shrink-0" />
-                <span>Quality Within Budget. Guaranteed.</span>
+                <span>Quality Engineering Within Your Budget</span>
               </div>
             </div>
 

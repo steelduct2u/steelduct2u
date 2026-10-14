@@ -120,7 +120,7 @@ export default function Contact() {
                 style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
               >
                 <CheckCircle2 size={14} className="text-emerald-400" />
-                <span>100% Free &middot; No Obligation</span>
+                <span>Free Site Inspection &middot; No Obligation</span>
               </span>
             </div>
           </div>
@@ -325,6 +325,10 @@ export default function Contact() {
                     <span>Send Now</span>
                   </button>
                 </div>
+                <p className="text-xs text-zinc-500 leading-relaxed text-right">
+                  By sending, you agree to our{' '}
+                  <a href="/privacy-policy" className="underline underline-offset-2 hover:text-orange-400">Privacy Policy</a>.
+                </p>
               </form>
             )}
           </div>

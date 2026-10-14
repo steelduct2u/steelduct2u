@@ -165,6 +165,9 @@ export default async function ServicePageRoute({ params }: { params: Promise<{ s
           <a href={`tel:${siteConfig.contact.phoneRaw}`} className="hover:text-orange-400">{siteConfig.contact.phone}</a> ·{' '}
           <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-orange-400">{siteConfig.contact.email}</a>
         </p>
+        <p className="mt-1">
+          <Link href="/privacy-policy" className="underline underline-offset-2 hover:text-orange-400">Privacy Policy</Link>
+        </p>
       </footer>
     </div>
   )
