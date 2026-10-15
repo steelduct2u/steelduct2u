@@ -331,7 +331,7 @@ export default function Services() {
                   Duct Steel Types &amp; Material Breakdown
                 </h3>
               </div>
-              <p className="text-sm sm:text-sm text-gray-300 max-w-md">
+              <p className="text-sm text-gray-300 max-w-md">
                 We manufacture and assemble all duct profiles in-house to match your mechanical drawings, velocity requirements, and local council standards.
               </p>
             </div>

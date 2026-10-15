@@ -291,7 +291,7 @@ export default function Gallery() {
 
                     {/* Description */}
                     <p
-                      className="text-sm sm:text-sm text-zinc-400 leading-relaxed mb-4 line-clamp-3"
+                      className="text-sm text-zinc-400 leading-relaxed mb-4 line-clamp-3"
                       style={{ fontFamily: 'var(--font-inter), sans-serif' }}
                     >
                       {item.description}
@@ -301,7 +301,7 @@ export default function Gallery() {
                     <div className="mb-4">
                       <ul className="space-y-2">
                         {item.specifications.slice(0, 2).map((spec, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm sm:text-xs text-zinc-200">
+                          <li key={i} className="flex items-start gap-2 text-sm text-zinc-200">
                             <CheckCircle2
                               size={15}
                               className="text-emerald-400 flex-shrink-0 mt-0.5"
@@ -429,13 +429,13 @@ export default function Gallery() {
                   </div>
                 </div>
 
-                <p className="text-[13px] sm:text-sm text-zinc-400 leading-relaxed line-clamp-3 md:line-clamp-none">
+                <p className="text-sm text-zinc-400 leading-relaxed line-clamp-3 md:line-clamp-none">
                   {selectedItem.description}
                 </p>
 
                 {/* Skop & pematuhan – baris ringkas */}
                 {(selectedItem.scope || selectedItem.compliance) && (
-                  <dl className="rounded-xl bg-white/[0.03] border border-white/10 divide-y divide-white/10 text-[13px] sm:text-sm">
+                  <dl className="rounded-xl bg-white/[0.03] border border-white/10 divide-y divide-white/10 text-sm">
                     {selectedItem.scope && (
                       <div className="flex items-start gap-2.5 px-3 py-2">
                         <Wrench size={14} className="text-orange-400 flex-shrink-0 mt-0.5" />
@@ -456,7 +456,7 @@ export default function Gallery() {
                 {/* Spesifikasi */}
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
                   {selectedItem.specifications.map((spec, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[13px] text-zinc-300 leading-snug">
+                    <li key={i} className="flex items-start gap-2 text-sm text-zinc-300 leading-snug">
                       <CheckCircle2 size={14} className="text-emerald-400 flex-shrink-0 mt-0.5" />
                       <span>{spec}</span>
                     </li>

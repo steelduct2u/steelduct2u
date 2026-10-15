@@ -109,7 +109,7 @@ export default function Contact() {
                 >
                   Free Site Inspection, Expert Advice &amp; Quotation
                 </h3>
-                <p className="leading-relaxed text-xs sm:text-sm text-zinc-400">
+                <p className="leading-relaxed text-sm text-zinc-400">
                   Quality engineering, scoped to fit your budget.
                 </p>
               </div>
@@ -138,7 +138,7 @@ export default function Contact() {
                 >
                   WhatsApp Inquiry Form
                 </h3>
-                <p className="leading-relaxed text-xs text-zinc-400">
+                <p className="leading-relaxed text-sm text-zinc-400">
                   Fill in the form and click <span className="text-green-400 font-semibold">Send Now</span> — your inquiry will be sent directly to our WhatsApp.
                 </p>
               </div>
